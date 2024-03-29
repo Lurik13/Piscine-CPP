@@ -43,4 +43,4 @@ code: all clean
 # $? : toutes les dépendances plus récentes que le but 
 # $^ : toutes les dépendances 
 # $+ : idem mais chaque dépendance apparait autant de fois qu'elle
-#      est cité et l'ordre d'apparition est conservé
+#      est citée et l'ordre d'apparition est conservé
