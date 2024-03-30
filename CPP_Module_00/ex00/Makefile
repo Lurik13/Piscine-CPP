@@ -6,7 +6,7 @@
 #    By: lribette <lribette@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/29 18:16:19 by lribette          #+#    #+#              #
-#    Updated: 2024/03/29 19:20:45 by lribette         ###   ########.fr        #
+#    Updated: 2024/03/29 19:29:18 by lribette         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,7 +41,7 @@ clean:
 	@echo "\r\033[K\033[38;2;170;0;0;1mAll object files have been successfully deleted.\033[0m"
 
 fclean:
-	@echo -n "\r\033[38;2;170;0;0m$(OBJS)$(NAME)"
+	@echo -n "\r\033[38;2;170;0;0m$(OBJS) $(NAME)"
 	@rm -rf $(OBJS)
 	@rm -rf $(NAME)
 	@echo "\r\033[K\033[38;2;170;0;0;1mAll object files and \033[38;2;255;145;5;3m./$(NAME)\033[0m\033[38;2;170;0;0;1m have been successfully deleted.\033[0m"
