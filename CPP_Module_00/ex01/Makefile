@@ -6,7 +6,7 @@
 #    By: lribette <lribette@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/29 18:16:19 by lribette          #+#    #+#              #
-#    Updated: 2024/03/30 10:22:36 by lribette         ###   ########.fr        #
+#    Updated: 2024/03/30 11:19:38 by lribette         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,7 @@ fclean:
 
 re: fclean all
 
-code: all clean
+code: fclean all clean
 
 .PHONY: all clean fclean re
 

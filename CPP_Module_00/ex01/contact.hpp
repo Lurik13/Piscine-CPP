@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 09:04:57 by lribette          #+#    #+#             */
-/*   Updated: 2024/03/30 10:21:54 by lribette         ###   ########.fr       */
+/*   Updated: 2024/03/31 11:29:40 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CONTACT_HPP
 
 # include <iostream>
+# include <string>
 
 class Contact
 {
@@ -25,8 +26,8 @@ class Contact
 		std::string darkest_secret;
 
 	public:
-		Contact();
-		~Contact();
+        std::string    add_attribute(std::string request);
+		void	add_contact();
 };
 
 #endif
