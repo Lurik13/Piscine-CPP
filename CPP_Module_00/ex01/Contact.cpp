@@ -6,32 +6,11 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 10:22:26 by lribette          #+#    #+#             */
-/*   Updated: 2024/03/31 14:44:15 by lribette         ###   ########.fr       */
+/*   Updated: 2024/03/31 18:03:58 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.hpp"
-#include <cctype>
-#include <string>
-
-#define OUTLINE "\033[38;2;245;196;38;1m"
-#define ADD "\033[38;2;52;181;74;1m ADD    \033[0m"
-#define SEARCH "\033[38;2;120;80;252;1m SEARCH \033[0m"
-#define EXIT "\033[38;2;193;32;32;1m EXIT   \033[0m"
-#define ERROR "\033[38;2;170;0;0;1m"
-#define RESET "\033[0m"
-
-void	display_phonebook_home()
-{
-	std::cout << OUTLINE "╔═════════════════════════════════════════════════╗" << std::endl;
-	std::cout << "║" RESET "          ☎️  Welcome to my Phonebook! 😁         " OUTLINE "║" << std::endl;
-	std::cout << "║" RESET " You can type 3 commands:                        " OUTLINE "║" << std::endl;
-	std::cout << "║" RESET ADD ": Adds a contact to your phonebook.      " OUTLINE "║" << std::endl;
-	std::cout << "║" RESET SEARCH ": Searchs a contact in your contact list." OUTLINE "║" << std::endl;
-	std::cout << "║" RESET EXIT ": Exits the phonebook.                   " OUTLINE "║" << std::endl;
-	std::cout << "╚═════════════════════════════════════════════════╝" RESET << std::endl;
-	
-}
+#include "Phonebook.hpp"
 
 int	does_respect_name_norm(std::string str)
 {
@@ -56,7 +35,7 @@ int	does_respect_phone_norm(std::string str)
 	return (1);
 }
 
-std::string	Contact::add_attribute(std::string request)
+std::string	Contact::add_attribute(std::string request, int norm)
 {
 	std::string	attribute = "";
 	std::string	incorrect = request;
@@ -67,14 +46,19 @@ std::string	Contact::add_attribute(std::string request)
 		std::cout << request << " : ";
 		if (std::getline(std::cin, attribute) && !attribute.empty())
 		{
-			if (!request.compare("Phone number"))
+			if (norm)
 			{
-				if (does_respect_phone_norm(attribute))
-					break ;
+				if (request == "Phone number")
+				{
+					if (does_respect_phone_norm(attribute))
+						break ;
+				}
+				else if (does_respect_name_norm(attribute))
+						break ;
+				std::cout << ERROR << "Incorrect " << incorrect << "!" RESET << std::endl;
 			}
-			else if (does_respect_name_norm(attribute))
-					break ;
-			std::cout << ERROR << "Incorrect " << incorrect << "!" RESET << std::endl;
+			else
+				break ;
 		}
 	}
 	return (attribute);
@@ -82,28 +66,26 @@ std::string	Contact::add_attribute(std::string request)
 
 void	Contact::add_contact()
 {
-	this->first_name = add_attribute("First name");
-	this->last_name = add_attribute("Last name");
-	std::cout << "Nickname : ";
-	std::getline(std::cin, this->nickname);
-	this->phone_number = add_attribute("Phone number");
+	static int	i = 0;
+	this->index = i++;
+	this->first_name = add_attribute("First name", 1);
+	this->last_name = add_attribute("Last name", 1);
+	this->nickname = add_attribute("Nickname", 0);
+	this->phone_number = add_attribute("Phone number", 1);
 	std::cout << "Darkest secret : ";
 	std::getline(std::cin, this->darkest_secret);
-	std::cout << "first name = " << this->first_name << " last name = " << this->last_name << " nickname = " << this->nickname << " phone = " << this->phone_number << " darkest secret = " << darkest_secret << std::endl;
+
+	std::cout << "index = " << this->index << std::endl
+	<< "first name = " << this->first_name << std::endl 
+	<< " last name = " << this->last_name << std::endl
+	<< " nickname = " << this->nickname << std::endl
+	<< " phone = " << this->phone_number << std::endl
+	<< " darkest secret = " << darkest_secret << std::endl;
 }
 
-int	main(void)
-{
-	Contact	contact;
-	display_phonebook_home();
-	std::string input = "";
-	while (input.compare("EXIT"))
-	{
-		if (!input.compare("ADD"))
-			contact.add_contact();
-		if (!input.compare("SEARCH"))
-			std::cout << "Bien recu search !" << input << std::endl;
-		std::getline(std::cin, input);
-		// std::cin >> input;
-	}
-}
+int			Contact::get_index() { return this->index; }
+std::string	Contact::get_first_name() { return this->first_name; }
+std::string	Contact::get_last_name() { return this->last_name; }
+std::string	Contact::get_nickname() { return this->nickname; }
+std::string	Contact::get_phone_number() { return this->phone_number; }
+std::string	Contact::get_darkest_secret() { return this->darkest_secret; }
