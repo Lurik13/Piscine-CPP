@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 09:04:57 by lribette          #+#    #+#             */
-/*   Updated: 2024/03/31 18:01:05 by lribette         ###   ########.fr       */
+/*   Updated: 2024/03/31 18:07:19 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,12 @@ class Contact
 		std::string		add_attribute(std::string request, int norm);
 		void			add_contact();
 
-		int			get_index();
-		std::string	get_first_name();
-		std::string	get_last_name();
-		std::string	get_nickname();
-		std::string	get_phone_number();
-		std::string	get_darkest_secret();
+		int				get_index();
+		std::string		get_first_name();
+		std::string		get_last_name();
+		std::string		get_nickname();
+		std::string		get_phone_number();
+		std::string		get_darkest_secret();
 };
 
 #endif

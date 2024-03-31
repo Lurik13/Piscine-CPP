@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 10:22:26 by lribette          #+#    #+#             */
-/*   Updated: 2024/03/31 18:03:58 by lribette         ###   ########.fr       */
+/*   Updated: 2024/03/31 18:12:16 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,7 @@ void	Contact::add_contact()
 	this->last_name = add_attribute("Last name", 1);
 	this->nickname = add_attribute("Nickname", 0);
 	this->phone_number = add_attribute("Phone number", 1);
-	std::cout << "Darkest secret : ";
-	std::getline(std::cin, this->darkest_secret);
+	this->darkest_secret = add_attribute("Darkest secret", 0);
 
 	std::cout << "index = " << this->index << std::endl
 	<< "first name = " << this->first_name << std::endl 
@@ -83,9 +82,9 @@ void	Contact::add_contact()
 	<< " darkest secret = " << darkest_secret << std::endl;
 }
 
-int			Contact::get_index() { return this->index; }
-std::string	Contact::get_first_name() { return this->first_name; }
-std::string	Contact::get_last_name() { return this->last_name; }
-std::string	Contact::get_nickname() { return this->nickname; }
-std::string	Contact::get_phone_number() { return this->phone_number; }
-std::string	Contact::get_darkest_secret() { return this->darkest_secret; }
+int			Contact::get_index()			{ return this->index; }
+std::string	Contact::get_first_name()		{ return this->first_name; }
+std::string	Contact::get_last_name()		{ return this->last_name; }
+std::string	Contact::get_nickname()			{ return this->nickname; }
+std::string	Contact::get_phone_number()		{ return this->phone_number; }
+std::string	Contact::get_darkest_secret()	{ return this->darkest_secret; }
