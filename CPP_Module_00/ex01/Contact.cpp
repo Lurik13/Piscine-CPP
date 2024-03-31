@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   contact.cpp                                        :+:      :+:    :+:   */
+/*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 10:22:26 by lribette          #+#    #+#             */
-/*   Updated: 2024/03/31 11:31:08 by lribette         ###   ########.fr       */
+/*   Updated: 2024/03/31 14:44:15 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "contact.hpp"
+#include "Contact.hpp"
 #include <cctype>
 #include <string>
 
@@ -18,6 +18,7 @@
 #define ADD "\033[38;2;52;181;74;1m ADD    \033[0m"
 #define SEARCH "\033[38;2;120;80;252;1m SEARCH \033[0m"
 #define EXIT "\033[38;2;193;32;32;1m EXIT   \033[0m"
+#define ERROR "\033[38;2;170;0;0;1m"
 #define RESET "\033[0m"
 
 void	display_phonebook_home()
@@ -37,7 +38,7 @@ int	does_respect_name_norm(std::string str)
 	if (!std::isupper(str[0]))
 		return (0);
 	int i = 1;
-	for (i = 1; (str[i] && std::isalpha(str[i])); i++)
+	for (i = 1; (str[i] && (std::isalpha(str[i]) || std::isspace(str[i]))); i++)
 		if (std::isupper(str[i]))
 			return (0);
 	if (str[i])
@@ -50,7 +51,7 @@ int	does_respect_phone_norm(std::string str)
 	int i = 0;
 	while (str[i] && std::isdigit(str[i]))
 		i++;
-	if (str[i] || i != 10 || str[1] == '0')
+	if (str[i] || i != 10 || str[0] != '0' || str[1] == '0')
 		return (0);
 	return (1);
 }
@@ -64,18 +65,17 @@ std::string	Contact::add_attribute(std::string request)
 	while (1)
 	{
 		std::cout << request << " : ";
-		std::cin >> attribute;
-		if (!request.compare("Phone number"))
+		if (std::getline(std::cin, attribute) && !attribute.empty())
 		{
-			if (does_respect_phone_norm(attribute))
-				break ;
+			if (!request.compare("Phone number"))
+			{
+				if (does_respect_phone_norm(attribute))
+					break ;
+			}
+			else if (does_respect_name_norm(attribute))
+					break ;
+			std::cout << ERROR << "Incorrect " << incorrect << "!" RESET << std::endl;
 		}
-		else
-		{
-			if (does_respect_name_norm(attribute))
-				break ;
-		}
-		std::cout << "Incorrect " << incorrect << "!" << std::endl;
 	}
 	return (attribute);
 }
@@ -85,10 +85,11 @@ void	Contact::add_contact()
 	this->first_name = add_attribute("First name");
 	this->last_name = add_attribute("Last name");
 	std::cout << "Nickname : ";
-	std::cin >> this->nickname;
+	std::getline(std::cin, this->nickname);
 	this->phone_number = add_attribute("Phone number");
 	std::cout << "Darkest secret : ";
-	std::cin >> this->darkest_secret;
+	std::getline(std::cin, this->darkest_secret);
+	std::cout << "first name = " << this->first_name << " last name = " << this->last_name << " nickname = " << this->nickname << " phone = " << this->phone_number << " darkest secret = " << darkest_secret << std::endl;
 }
 
 int	main(void)
@@ -102,6 +103,7 @@ int	main(void)
 			contact.add_contact();
 		if (!input.compare("SEARCH"))
 			std::cout << "Bien recu search !" << input << std::endl;
-		std::cin >> input;
+		std::getline(std::cin, input);
+		// std::cin >> input;
 	}
 }
