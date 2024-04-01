@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:31:49 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/01 15:45:37 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/01 16:02:20 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,21 +74,27 @@ std::string	Phonebook::add_attribute(std::string request, int norm)
 
 void	Phonebook::add_contact()
 {
-	static int	i = 0;
-	this->contacts[this->index_contact].set_index(i++);
+	static int	i = 1;
+	if (i == 9)
+	{
+		i = 1;
+		this->index_contact = 0;
+	}
+	
+	this->contacts[this->index_contact].set_index(i);
 	this->contacts[this->index_contact].set_first_name(add_attribute("First name", 1));
-	// this->first_name = add_attribute("First name", 1);
-	// this->last_name = add_attribute("Last name", 1);
-	// this->nickname = add_attribute("Nickname", 0);
-	// this->phone_number = add_attribute("Phone number", 1);
-	// this->darkest_secret = add_attribute("Darkest secret", 0);
+	this->contacts[this->index_contact].set_last_name(add_attribute("Last name", 1));
+	this->contacts[this->index_contact].set_nickname(add_attribute("Nickname", 0));
+	this->contacts[this->index_contact].set_phone_number(add_attribute("Phone number", 1));
+	this->contacts[this->index_contact].set_darkest_secret(add_attribute("Darkest secret", 0));
 
 	std::cout << "index = " << this->contacts[this->index_contact].get_index() << std::endl
-	<< "first name = " << this->contacts[this->index_contact].get_first_name() << std::endl;
-	// << " last name = " << this->last_name << std::endl
-	// << " nickname = " << this->nickname << std::endl
-	// << " phone = " << this->phone_number << std::endl
-	// << " darkest secret = " << darkest_secret << std::endl;
+	<< "first name = " << this->contacts[this->index_contact].get_first_name() << std::endl
+	<< "last name = " << this->contacts[this->index_contact].get_last_name() << std::endl
+	<< "nickname = " << this->contacts[this->index_contact].get_nickname() << std::endl
+	<< "phone = " << this->contacts[this->index_contact].get_phone_number() << std::endl
+	<< "darkest secret = " << this->contacts[this->index_contact].get_darkest_secret() << std::endl;
 
+	i++;
 	this->index_contact++;
 }
