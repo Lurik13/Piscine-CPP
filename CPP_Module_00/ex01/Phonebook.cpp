@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:31:49 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/01 16:02:20 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/01 19:14:44 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	does_respect_phone_norm(std::string str)
 	return (1);
 }
 
-std::string	Phonebook::add_attribute(std::string request, int norm)
+std::string	add_attribute(std::string request, int norm)
 {
 	std::string	attribute = "";
 	std::string	incorrect = request;
@@ -72,7 +72,7 @@ std::string	Phonebook::add_attribute(std::string request, int norm)
 	return (attribute);
 }
 
-void	Phonebook::add_contact()
+int	Phonebook::add_contact()
 {
 	static int	i = 1;
 	if (i == 9)
@@ -88,13 +88,59 @@ void	Phonebook::add_contact()
 	this->contacts[this->index_contact].set_phone_number(add_attribute("Phone number", 1));
 	this->contacts[this->index_contact].set_darkest_secret(add_attribute("Darkest secret", 0));
 
-	std::cout << "index = " << this->contacts[this->index_contact].get_index() << std::endl
-	<< "first name = " << this->contacts[this->index_contact].get_first_name() << std::endl
-	<< "last name = " << this->contacts[this->index_contact].get_last_name() << std::endl
-	<< "nickname = " << this->contacts[this->index_contact].get_nickname() << std::endl
-	<< "phone = " << this->contacts[this->index_contact].get_phone_number() << std::endl
-	<< "darkest secret = " << this->contacts[this->index_contact].get_darkest_secret() << std::endl;
-
+	std::cout << BLUE << this->contacts[this->index_contact].get_nickname()
+	<< RESET << " has been added to the phonebook." << std::endl << std::endl;
+	
 	i++;
 	this->index_contact++;
+	return (1);
+}
+
+void	ft_print_column(std::string str)
+{
+	int	len = str.length();
+	int	spaces = 10 - len;
+	
+	std::cout << OUTLINE << "|" << RESET;
+	for (int i = 0; i < spaces; i++)
+		std::cout << " ";
+	std::cout << str;
+}
+
+void	Phonebook::init()
+{
+	for (int i = 0; i < 8; i++)
+	{
+		this->contacts[this->index_contact].set_index(i + 1);
+		this->contacts[this->index_contact].set_first_name("");
+		this->contacts[this->index_contact].set_last_name("");
+		this->contacts[this->index_contact].set_nickname("");
+		this->contacts[this->index_contact].set_phone_number("");
+		this->contacts[this->index_contact].set_darkest_secret("");
+	}
+	
+}
+
+int	Phonebook::search()
+{
+	std::cout << "Bien recu search !" << std::endl;
+	std::cout << OUTLINE
+	<< "┌-------------------------------------------┐" << std::endl;
+	for (int i = 0; i < 8; i++)
+	{
+		std::cout << "i = " << i
+		<< "|" RESET "         " << this->contacts[i].get_index();
+		ft_print_column(this->contacts[i].get_first_name());
+		ft_print_column(this->contacts[i].get_last_name());
+		ft_print_column(this->contacts[i].get_nickname());
+		std::cout << OUTLINE "|" << std::endl;
+		std::cout << this->contacts[i].get_index() << " ";
+	}
+	//a faire : si strlen(str) > 10
+
+	
+	// std::cout << "│" RESET "       " ADD "     |     " SEARCH "     |     " EXIT "       " OUTLINE "│" << std::endl;
+	// std::cout << "└─────────────────────────────────────────────────┘" RESET << std::endl;
+	// this->contacts[0].print_contact();
+	return (1);
 }

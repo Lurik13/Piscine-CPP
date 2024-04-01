@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 09:04:57 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/01 15:48:57 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/01 18:16:01 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ class Contact
 		void	set_nickname(std::string str);
 		void	set_phone_number(std::string str);
 		void	set_darkest_secret(std::string str);
+
+		void	print_contact();
 };
 
 #endif
