@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:31:42 by lribette          #+#    #+#             */
-/*   Updated: 2024/03/31 17:45:59 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/01 15:41:44 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,13 @@ class Phonebook
 {
 	private:
 		Contact contacts[8];
-		// int		contacts_number;
+		int		index_contact;
 	public:
+		Phonebook();
+		~Phonebook();
+
+		std::string		add_attribute(std::string request, int norm);
+		void			add_contact();
 };
 
 #endif

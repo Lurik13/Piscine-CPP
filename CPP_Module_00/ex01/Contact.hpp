@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 09:04:57 by lribette          #+#    #+#             */
-/*   Updated: 2024/03/31 18:07:19 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/01 15:48:57 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ class Contact
 		std::string	darkest_secret;
 
 	public:
-		std::string		add_attribute(std::string request, int norm);
-		void			add_contact();
+		Contact();
+		~Contact();
 
 		int				get_index();
 		std::string		get_first_name();
@@ -38,6 +38,13 @@ class Contact
 		std::string		get_nickname();
 		std::string		get_phone_number();
 		std::string		get_darkest_secret();
+
+		void	set_index(int number);
+		void	set_first_name(std::string str);
+		void	set_last_name(std::string str);
+		void	set_nickname(std::string str);
+		void	set_phone_number(std::string str);
+		void	set_darkest_secret(std::string str);
 };
 
 #endif
