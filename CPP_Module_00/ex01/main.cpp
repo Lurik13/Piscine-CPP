@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:31:53 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/01 18:37:38 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/02 12:27:02 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,11 @@ int	main(void)
 	display_phonebook_home();
 	phonebook.init();
 	std::string input = "";
-	int	i = 0;
+	int	i;
 	
 	while (input != "EXIT")
 	{
+		i = 0;
 		if (input == "ADD")
 			i = phonebook.add_contact();
 		if (input == "SEARCH")

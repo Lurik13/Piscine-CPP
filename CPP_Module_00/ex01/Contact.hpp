@@ -6,17 +6,12 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 09:04:57 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/01 18:16:01 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/02 12:50:57 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CONTACT_HPP
 # define CONTACT_HPP
-
-# include <iostream>
-# include <string>
-# include <cctype>
-# include <string>
 
 class Contact
 {
