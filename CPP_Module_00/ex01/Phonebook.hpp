@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/31 17:31:42 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/02 12:51:38 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/02 13:30:01 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,27 +21,35 @@
 # define BLUE "\033[38;2;75;186;220;1m"
 # define RESET "\033[0m"
 
-# include "Contact.hpp"
-# include "phonebook_utils.cpp"
 # include <iostream>
 # include <string>
 # include <cctype>
 # include <string>
 # include <stdlib.h>
 
+# include "Contact.hpp"
+
 class Phonebook
 {
 	private:
 		Contact contacts[8];
 		int		index_contact;
+		
+		int			_does_respect_name_norm(std::string str);
+		int			_does_respect_phone_norm(std::string str);
+		std::string	_add_attribute(std::string request, int norm);
+		void		_print_column(std::string str);
+		void		_print_search();
+
+		
 	public:
 		Phonebook();
 		~Phonebook();
 
 		void	init();
 		int		add_contact();
-		void	ft_print_search();
 		int		search();
 };
+
 
 #endif

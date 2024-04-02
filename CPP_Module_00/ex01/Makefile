@@ -6,7 +6,7 @@
 #    By: lribette <lribette@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/29 18:16:19 by lribette          #+#    #+#              #
-#    Updated: 2024/03/31 17:27:30 by lribette         ###   ########.fr        #
+#    Updated: 2024/04/02 13:28:13 by lribette         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ FLAGS += -Wall -Wextra -Werror -g -std=c++98
 # ----------------------------- Sources ----------------------------- #
 
 NAME = phonebook
-FILES = Contact Phonebook main
+FILES = Contact main Phonebook
 
 SRCS = $(addsuffix .cpp, $(FILES))
 OBJS = $(addsuffix .o, $(FILES))
