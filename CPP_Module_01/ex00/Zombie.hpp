@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 17:24:48 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/03 12:20:08 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/03 15:39:55 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,5 @@ class Zombie
 		std::string	get_name();
 };
 
-Zombie *newZombie(std::string name);
+Zombie 	*newZombie(std::string name);
+void 	randomChump( std::string name );
