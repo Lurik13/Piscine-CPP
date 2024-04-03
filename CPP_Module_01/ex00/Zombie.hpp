@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 17:24:48 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/02 17:45:44 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/03 12:20:08 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ class Zombie
 	public:
 		Zombie(std::string str);
 		~Zombie();
-		void	announce();
 
+		void		announce();
 		std::string	get_name();
-		
 };
+
+Zombie *newZombie(std::string name);
