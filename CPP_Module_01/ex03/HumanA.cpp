@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 17:08:05 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/05 19:43:00 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/06 11:17:31 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,9 @@
 void	HumanA::setName(std::string name) { this->_name = name; }
 std::string	HumanA::getName() {return this->_name;}
 
-HumanA::HumanA(std::string name, Weapon weapon)
+HumanA::HumanA(std::string name, Weapon& weapon) : _weapon(weapon)
 {
 	this->setName(name);
-	this->_weapon = weapon;
 }
 
 HumanA::~HumanA(){}
