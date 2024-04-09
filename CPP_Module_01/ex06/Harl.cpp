@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 08:47:48 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/09 10:21:52 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/09 10:39:30 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,15 @@ void Harl::complain(std::string level)
 		}
 		i++;
 	}
-	(this->*fxptr[i])();
+	switch (i)
+	{
+		case 0:
+			(this->*fxptr[0])();
+		case 1:
+			(this->*fxptr[1])();
+		case 2:
+			(this->*fxptr[2])();
+		case 3:
+			(this->*fxptr[3])();
+	}
 }
