@@ -6,9 +6,11 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 08:47:33 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/09 10:35:24 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/11 11:45:51 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #include <iostream>
 

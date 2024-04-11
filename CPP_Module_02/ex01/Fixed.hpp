@@ -5,14 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/09 18:49:17 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/11 11:45:01 by lribette         ###   ########.fr       */
+/*   Created: 2024/04/10 09:31:27 by lribette          #+#    #+#             */
+/*   Updated: 2024/04/11 11:36:52 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <iostream>
+#include <cmath>
+
+#define RESET "\e[0m"
 
 class Fixed
 {
@@ -21,10 +24,16 @@ class Fixed
 		static const int	_fract_bit = 8;
 	public:
 		Fixed();
-		Fixed(Fixed &copy);
-		Fixed& operator=(const Fixed &source);
+		Fixed(const int to_fix);
+		Fixed(const float to_fix);
+		Fixed(Fixed const &copy);
+		Fixed &operator=(const Fixed &source);
 		~Fixed();
 		
-		int getRawBits( void ) const;
-		void setRawBits( int const raw );
+		float	getRawBits();
+		
+		float toFloat( void ) const;
+		int toInt( void ) const;
 };
+
+std::ostream &operator<<(std::ostream& os, const Fixed &source);
