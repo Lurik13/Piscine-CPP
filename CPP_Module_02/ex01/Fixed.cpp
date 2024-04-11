@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 09:31:39 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/11 11:44:14 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/11 11:58:54 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Fixed &Fixed::operator=(const Fixed &source)
 {
-	std::cout << "\033[38;2;200;200;0;1m" << "Copy assignment operator= called"
+	std::cout << "\033[38;2;200;200;0;1m" << "Copy assignment operator called"
 	<< RESET << std::endl;
 	this->_value = source._value;
 	return(*this);
@@ -23,8 +23,6 @@ Fixed &Fixed::operator=(const Fixed &source)
 std::ostream &operator<<(std::ostream& os, const Fixed &source)
 {
 	os << source.toFloat();
-	std::cout << "\n\033[38;2;200;200;0;1m" << "Copy assignment operator<< called"
-	<< RESET;
 	return (os);
 }
 
@@ -55,7 +53,7 @@ Fixed::Fixed(Fixed const &copy)
 {
 	std::cout << "\033[38;2;25;95;170;1m" << "Copy constructor called"
 	<< RESET << std::endl;
-	this->_value = copy._value;
+	*this = copy;
 }
 
 Fixed::~Fixed()
