@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 09:31:39 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/11 11:58:54 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/11 13:34:22 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,10 +64,8 @@ Fixed::~Fixed()
 
 
 
-float	Fixed::getRawBits()
-{
-	return (this->_value);
-}
+float	Fixed::getRawBits() {return (this->_value);}
+void Fixed::setRawBits( int const raw ) {this->_value = raw;}
 
 
 
