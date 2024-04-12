@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 09:31:39 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/12 18:17:10 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/12 19:44:20 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,43 @@ std::ostream &operator<<(std::ostream& os, const Fixed &src)
 	return (os);
 }
 
-bool Fixed::operator>(const Fixed &src) const{return (this->_value > src._value);}
-bool Fixed::operator<(const Fixed &src) const{return (this->_value < src._value);}
-bool Fixed::operator>=(const Fixed &src) const{return (this->_value >= src._value);}
-bool Fixed::operator<=(const Fixed &src) const{return (this->_value <= src._value);}
-bool Fixed::operator==(const Fixed &src) const{return (this->_value == src._value);}
-bool Fixed::operator!=(const Fixed &src) const{return (this->_value != src._value);}
+bool Fixed::operator>(const Fixed &src) const{
+	return (this->_value > src._value);}
+bool Fixed::operator<(const Fixed &src) const{
+	return (this->_value < src._value);}
+bool Fixed::operator>=(const Fixed &src) const{
+	return (this->_value >= src._value);}
+bool Fixed::operator<=(const Fixed &src) const{
+	return (this->_value <= src._value);}
+bool Fixed::operator==(const Fixed &src) const{
+	return (this->_value == src._value);}
+bool Fixed::operator!=(const Fixed &src) const{
+	return (this->_value != src._value);}
 
-Fixed &Fixed::operator+(const Fixed &src){this->_value += src._value;
-	return(*this);}
-Fixed &Fixed::operator-(const Fixed &src){this->_value -= src._value;
-	return(*this);}
-Fixed &Fixed::operator*(const Fixed &src){this->_value *= src._value >> _fract_bit;
-	return(*this);}
-Fixed &Fixed::operator/(const Fixed &src){
-	this->_value = this->_value / src._value << _fract_bit;
-	return(*this);}
+Fixed Fixed::operator+(const Fixed &src) const
+{
+	Fixed temp;
+	temp._value = this->_value + src._value;
+	return(temp);
+}
+Fixed Fixed::operator-(const Fixed &src) const
+{
+	Fixed temp;
+	temp._value = this->_value - src._value;
+	return(temp);
+}
+Fixed Fixed::operator*(const Fixed &src) const
+{
+	Fixed temp;
+	temp._value = this->_value * src._value >> _fract_bit;
+	return(temp);
+}
+Fixed Fixed::operator/(const Fixed &src) const
+{
+	Fixed temp;
+	temp._value = this->_value / src._value << _fract_bit;
+	return(temp);
+}
 
 Fixed &Fixed::operator++(){
 	this->_value++;
