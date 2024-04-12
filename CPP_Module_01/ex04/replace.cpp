@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 10:47:50 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/08 15:45:40 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/12 19:16:45 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ std::string	replace_by_s2(std::string current_line, std::string s1, std::string 
 		{
 			current_line.erase(i, len_s1);
 			current_line.insert(i, s2);
+			i += s2.length();
 		}
 	}
 	return (current_line);
