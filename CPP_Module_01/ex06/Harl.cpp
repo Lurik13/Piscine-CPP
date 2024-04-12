@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/09 08:47:48 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/09 10:39:30 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/12 16:15:28 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,8 @@ void Harl::complain(std::string level)
 	std::string	lvlptr[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	size_t i = 0;
 
-	while (level != lvlptr[i])
-	{
-		if (i == 4)
-		{
-			std::cout << WHITE NOT_FOUND RESET << std::endl;
-			return ;
-		}
+	while (i < 4 && level != lvlptr[i])
 		i++;
-	}
 	switch (i)
 	{
 		case 0:
@@ -62,5 +55,8 @@ void Harl::complain(std::string level)
 			(this->*fxptr[2])();
 		case 3:
 			(this->*fxptr[3])();
+			break ;
+		default:
+			std::cout << WHITE NOT_FOUND RESET << std::endl;
 	}
 }
