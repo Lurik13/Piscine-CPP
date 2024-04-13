@@ -12,6 +12,12 @@
 
 #include "Zombie.hpp"
 
+Zombie::Zombie()
+{
+	this->_name = "Lambda zombie";
+	return ;
+}
+
 Zombie::Zombie(std::string name)
 {
 	this->_name = name;
@@ -29,5 +35,6 @@ std::string	Zombie::get_name() { return this->_name; }
 
 void	Zombie::announce()
 {
-	std::cout << "\033[38;2;75;150;0;1m" << get_name() << "\033[0m" << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << "\033[38;2;75;150;0;1m" << get_name() << "\033[0m"
+	<< ": BraiiiiiiinnnzzzZ..." << std::endl;
 }
