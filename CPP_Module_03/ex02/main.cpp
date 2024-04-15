@@ -6,18 +6,20 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/13 09:47:06 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/15 16:28:11 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/15 18:05:50 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
+#include "FragTrap.hpp"
 
 int main(void)
 {
 	ClapTrap R2D2;
 	ScavTrap C3PO("C-3PO");
 	ScavTrap _6PO(C3PO);
+	FragTrap R4P17("R4-P17");
 
 	R2D2.attack("C-3PO");
 	C3PO.takeDamage(3);
@@ -42,4 +44,5 @@ int main(void)
 	_6PO.attack("R2-D2");
 	R2D2.takeDamage(20);
 	_6PO.guardGate();
+	R4P17.highFivesGuys();
 }

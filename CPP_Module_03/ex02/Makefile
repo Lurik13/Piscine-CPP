@@ -6,7 +6,7 @@
 #    By: lribette <lribette@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/29 18:16:19 by lribette          #+#    #+#              #
-#    Updated: 2024/04/13 09:48:23 by lribette         ###   ########.fr        #
+#    Updated: 2024/04/15 18:05:41 by lribette         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ FLAGS += -Wall -Wextra -Werror -g -std=c++98
 
 # ----------------------------- Sources ----------------------------- #
 
-NAME = scavtrap
-FILES = ClapTrap main ScavTrap
+NAME = fragtrap
+FILES = ClapTrap FragTrap main ScavTrap
 
 SRCS = $(addsuffix .cpp, $(FILES))
 OBJS = $(addsuffix .o, $(FILES))
