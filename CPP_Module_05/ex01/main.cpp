@@ -6,11 +6,24 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:02:03 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/21 17:55:41 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/22 19:07:44 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+
+void	help()
+{
+	std::cout << EXECUTABLE << "./form" 
+	<< LEFT	STRING	VARIABLE " bureaucratName"		RIGHT
+	<< LEFT INT		VARIABLE " bureaucratGrade"		RIGHT
+	<< LEFT STRING	VARIABLE " formName"			RIGHT
+	<< LEFT BOOL	VARIABLE " formSigned"			RIGHT
+	<< LEFT INT		VARIABLE " formGradeToSign"		RIGHT
+	<< LEFT INT		VARIABLE " formGradeToExecute"	RIGHT
+	<< std::endl;
+}
 
 int which_grade(char *str)
 {
@@ -19,14 +32,21 @@ int which_grade(char *str)
 		if (i == 0 && str[i] == '-')
 			i++;
 		if (str[i] && !isdigit(str[i]))
-			throw (Bureaucrat::NotIntegerException());
+			throw (Bureaucrat::WrongParamException());
 	}
 	return (std::atoi(str));
 }
 
+int which_sign(std::string str)
+{
+	if (!(str.size() == 1 && (str[0] == '0' || str[0] == '1')))
+		throw (Bureaucrat::WrongParamException());
+	return (str[0] - 48);
+}
+
 int main(int argc, char **argv)
 {
-	if (argc == 3)
+	if (argc == 7)
 	{
 		try
 		{
@@ -34,6 +54,7 @@ int main(int argc, char **argv)
 			bureaucrat.incrementGrade();
 			bureaucrat.decrementGrade();
 			bureaucrat.decrementGrade();
+			Form(argv[3], which_sign(argv[4]), which_grade(argv[5]), which_grade(argv[6]));
 			std::cout << bureaucrat << std::endl;
 		}
 		catch(std::exception &e)
@@ -42,6 +63,5 @@ int main(int argc, char **argv)
 		}
 	}
 	else
-		std::cout << EXCEPTION << "./bureaucrat <std::string name> <int grade>\n"
-		<< RESET;
+		help();
 }

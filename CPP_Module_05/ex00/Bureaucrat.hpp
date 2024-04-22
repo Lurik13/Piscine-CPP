@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:02:20 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/21 17:56:39 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/22 19:05:36 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,6 @@ class Bureaucrat
        		public:
         		virtual const char *what() const throw() {
             	   return ("Grade is too high.");
-        	}
-     	};
-		class WrongFormatException : public std::exception
-		{
-       		public:
-        		virtual const char *what() const throw() {
-					return ("./bureaucrat <std::string name> <int grade>");
         	}
      	};
 		class NotIntegerException : public std::exception

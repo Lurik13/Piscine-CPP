@@ -1,41 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
+/*   Form.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/19 17:02:20 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/22 15:13:30 by lribette         ###   ########.fr       */
+/*   Created: 2024/04/22 12:59:41 by lribette          #+#    #+#             */
+/*   Updated: 2024/04/22 18:56:43 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Bureaucrat.hpp"
 
-#include <iostream>
-#include <cstdlib>
+#define EXECUTABLE "\033[38;2;255;145;5;3m"
 
-#define INCREMENT "\033[38;2;0;234;0;1m"
-#define DECREMENT "\033[38;2;234;0;0;1m"
-#define EXCEPTION "\033[38;2;172;88;255;1m"
-#define COUT "\033[38;2;234;0;234;1m"
-#define RESET "\e[0m"
+#define WHITE "\e[38;2;255;255;255m"
+#define LEFT RESET " <\e[3m"
+#define RIGHT RESET ">"
 
-class Bureaucrat
+#define TEXT_STRING "\033[38;2;78;201;176m"
+#define STRING TEXT_STRING "std" WHITE "::" TEXT_STRING "string"
+
+#define NUMBER "\033[38;2;83;151;208m"
+#define BOOL NUMBER "bool"
+#define INT NUMBER "int"
+
+#define VARIABLE "\033[38;2;148;208;241m"
+
+class Form
 {
 	private:
 		const std::string _name;
-		int	_grade;
+		bool _is_signed;
+		const int _grade_to_sign;
+		const int _grade_to_execute;
 	public:
-		Bureaucrat(const std::string name, int grade);
-		Bureaucrat(const Bureaucrat &copy);
-		Bureaucrat &operator=(const Bureaucrat &copy);
-		~Bureaucrat();
+		Form(const std::string name, bool is_signed, const int grade_to_sign, \
+			const int grade_to_execute);
+		Form(const Form &copy);
+		Form &operator=(const Form &copy);
+		~Form();
 
 		std::string getName() const;
-		int getGrade() const;
+		int getGradeToSign() const;
+		int getGradeToExecute() const;
 		void checkGrade(int grade);
-		void setGrade(int grade);
+		// void setGrade(int grade);
 		
 		void incrementGrade();
 		void decrementGrade();
@@ -55,13 +65,6 @@ class Bureaucrat
             	   return ("Grade is too high.");
         	}
      	};
-		class WrongParamException : public std::exception
-		{
-       		public:
-        		virtual const char *what() const throw() {
-					return ("Wrong parameter.");
-        	}
-     	};
 };
 
-std::ostream &operator<<(std::ostream &o, const Bureaucrat &b);
+std::ostream &operator<<(std::ostream &o, const Form &f);
