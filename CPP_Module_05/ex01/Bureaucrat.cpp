@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:02:39 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/21 17:56:30 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/23 14:47:20 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,17 @@ void Bureaucrat::decrementGrade()
 	this->setGrade(this->getGrade() + 1);
 	std::cout << DECREMENT << "After decrementing, " << this->getName()
 	<< " is in grade " << this->getGrade() << ".\n" << RESET;
+}
+
+void Bureaucrat::signForm(Form &f)
+{
+	std::cout << SIGN << this->getName();
+	if (f.getIsSigned() == 1)
+		std::cout << " signed " << f.getName() << ".";
+	else
+		std::cout << " couldn't sign " << f.getName()
+		<< " because he couldn't find his pen.";
+	std::cout << std::endl << RESET;
 }
 
 std::ostream &operator<<(std::ostream &o, const Bureaucrat &b)

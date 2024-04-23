@@ -6,9 +6,11 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 12:59:41 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/22 18:56:43 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/23 14:52:07 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #include "Bureaucrat.hpp"
 
@@ -35,20 +37,19 @@ class Form
 		const int _grade_to_sign;
 		const int _grade_to_execute;
 	public:
-		Form(const std::string name, bool is_signed, const int grade_to_sign, \
+		Form(const std::string name, const int grade_to_sign, \
 			const int grade_to_execute);
 		Form(const Form &copy);
 		Form &operator=(const Form &copy);
 		~Form();
 
 		std::string getName() const;
+		bool getIsSigned() const;
 		int getGradeToSign() const;
 		int getGradeToExecute() const;
 		void checkGrade(int grade);
-		// void setGrade(int grade);
 		
-		void incrementGrade();
-		void decrementGrade();
+		void beSigned(class Bureaucrat &b);
 
 
 		class GradeTooLowException : public std::exception

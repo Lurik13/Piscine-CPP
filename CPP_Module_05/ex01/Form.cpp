@@ -6,16 +6,17 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 13:00:29 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/22 18:56:47 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/23 14:52:33 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 
-Form::Form(const std::string name, bool is_signed, const int grade_to_sign, \
-	const int grade_to_execute) : _name(name), _is_signed(is_signed), \
+Form::Form(const std::string name, const int grade_to_sign, \
+	const int grade_to_execute) : _name(name), \
 	_grade_to_sign(grade_to_sign), _grade_to_execute(grade_to_execute)
 {
+	this->_is_signed = 0;
 	this->checkGrade(grade_to_sign);
 	this->checkGrade(grade_to_execute);
 	std::cout << "Form " << this->_name << " constructed.\n";
@@ -41,6 +42,7 @@ Form::~Form()
 /* ************************************************************************** */
 
 std::string Form::getName() const {return this->_name;}
+bool Form::getIsSigned() const {return this->_is_signed;}
 int Form::getGradeToSign() const {return this->_grade_to_sign;}
 int Form::getGradeToExecute() const {return this->_grade_to_execute;}
 
@@ -52,30 +54,28 @@ void	Form::checkGrade(int grade)
 		throw (Form::GradeTooHighException());
 }
 
-// void Form::setGrade(int grade)
-// {
-// 	Form::checkGrade(grade);
-// 	this->_grade = grade;
-// }
-
 /* ************************************************************************** */
 
-// void Form::incrementGrade()
-// {
-// 	this->setGrade(this->getGrade() - 1);
-// 	std::cout << INCREMENT << "After incrementing, " << this->getName()
-// 	<< " is in grade " << this->getGrade() << ".\n" << RESET;
-// }
-
-// void Form::decrementGrade()
-// {
-// 	this->setGrade(this->getGrade() + 1);
-// 	std::cout << DECREMENT << "After decrementing, " << this->getName()
-// 	<< " is in grade " << this->getGrade() << ".\n" << RESET;
-// }
-
-std::ostream &operator<<(std::ostream &o, const Form &b)
+void Form::beSigned(Bureaucrat &b)
 {
-	o << COUT << b.getName() << ", Form grade " /*<< b.getGrade()*/  << "." << RESET;
+	if (b.getGrade() > this->getGradeToSign()
+		|| b.getGrade() > this->getGradeToExecute())
+	{
+		b.signForm(*this);
+		throw (Form::GradeTooLowException());
+	}
+	this->_is_signed = 1;
+	b.signForm(*this);
+}
+
+std::ostream &operator<<(std::ostream &o, const Form &f)
+{
+	o << COUT << f.getName() << " is ";
+	if (f.getIsSigned() == 0)
+		o << "not";
+	else
+		o << "already";
+	o << " signed.\nIt requires grade " << f.getGradeToSign() << " to sign it and "
+	<< f.getGradeToExecute() << " to execute it." << RESET;
 	return (o);
 }
