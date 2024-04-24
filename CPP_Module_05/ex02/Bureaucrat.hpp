@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:02:20 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/23 15:11:08 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/24 17:01:00 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 #define EXCEPTION "\033[38;2;172;88;255;1m"
 #define COUT "\033[38;2;50;145;255;1m"
 #define SIGN "\x1b[38;2;136;87;66;1m"
+#define EXECUTION "\e[38;2;145;37;28;7m"
 #define RESET "\e[0m"
 
 class Bureaucrat
@@ -29,7 +30,7 @@ class Bureaucrat
 		const std::string _name;
 		int	_grade;
 	public:
-		Bureaucrat(const std::string name, int grade);
+		Bureaucrat(const std::string name = "Francis", int grade = 63);
 		Bureaucrat(const Bureaucrat &copy);
 		Bureaucrat &operator=(const Bureaucrat &copy);
 		~Bureaucrat();

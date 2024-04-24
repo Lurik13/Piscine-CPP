@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 15:12:26 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/24 12:19:33 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/24 16:43:43 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,22 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 	std::cout << "ShrubberyCreationForm " << this->_target << " destructed.\n";
 }
 
+
 /* ************************************************************************** */
+
 
 void ShrubberyCreationForm::execute(const Bureaucrat &executor)
 {
+	if (!this->getIsSigned())
+		throw (AForm::NotSignedYet());
+	if (executor.getGrade() > this->getGradeToExecute())
+	{
+		std::cout << SIGN << executor.getName()
+		<< " was unable to execute the shrubbery form because he lost the shrub seeds "
+		<< "\e[4m(grade " << executor.getGrade() << " > grade "
+		<< this->getGradeToExecute() << ")\n" << RESET;
+		throw (AForm::GradeTooLowException());
+	}
 	std::string file_name = this->getName() + "_shrubbery";
 	std::fstream outputFile;
 	outputFile.open(file_name.c_str(), std::fstream::out);

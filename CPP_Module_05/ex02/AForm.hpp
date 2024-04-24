@@ -13,7 +13,7 @@
 #pragma once
 
 #include "Bureaucrat.hpp"
-#include "fstream"
+#include <fstream>
 
 #define EXECUTABLE "\033[38;2;255;145;5;3m"
 
@@ -41,7 +41,6 @@ class AForm
 		const int _grade_to_execute;
 		bool _is_signed;
 	public:
-		// AForm();
 		AForm(const std::string name = "unnamed", int grade_to_sign = 63, \
 			int grade_to_execute = 34, bool is_signed = 0);
 		AForm(const AForm &copy);
@@ -70,6 +69,13 @@ class AForm
        		public:
         		virtual const char *what() const throw() {
             	   return ("Grade is too high.");
+        	}
+     	};
+		class NotSignedYet : public std::exception
+		{
+       		public:
+        		virtual const char *what() const throw() {
+            	   return ("Not signed yet.");
         	}
      	};
 };

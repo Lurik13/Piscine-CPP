@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:02:39 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/23 15:10:57 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/24 17:12:33 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,8 @@ void Bureaucrat::signForm(AForm &f)
 		std::cout << " signed " << f.getName() << ".";
 	else
 		std::cout << " couldn't sign " << f.getName()
-		<< " because he couldn't find his pen.";
+		<< " because he couldn't find his pen \e[4m(grade "
+		<< this->getGrade() << " > grade " << f.getGradeToSign() << ")";
 	std::cout << std::endl << RESET;
 }
 

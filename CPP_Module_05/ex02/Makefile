@@ -6,7 +6,7 @@
 #    By: lribette <lribette@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/29 18:16:19 by lribette          #+#    #+#              #
-#    Updated: 2024/04/23 15:50:57 by lribette         ###   ########.fr        #
+#    Updated: 2024/04/24 17:39:59 by lribette         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ FLAGS += -Wall -Wextra -Werror -g -std=c++98
 
 # ----------------------------- Sources ----------------------------- #
 
-NAME = form
+NAME = aform
 FILES = AForm Bureaucrat main PresidentialPardonForm RobotomyRequestForm \
 		ShrubberyCreationForm
 

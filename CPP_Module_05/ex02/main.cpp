@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:02:03 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/24 12:20:14 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/24 17:37:13 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@
 void	help()
 {
 	std::cout << EXECUTABLE << "./form" 
+	<< LEFT STRING	VARIABLE " shrubberyTarget"		RIGHT
+	<< LEFT STRING	VARIABLE " robotomyTarget"		RIGHT
+	<< LEFT STRING	VARIABLE " presidentTarget"		RIGHT
 	<< LEFT	STRING	VARIABLE " bureaucratName"		RIGHT
 	<< LEFT INT		VARIABLE " bureaucratGrade"		RIGHT
-	<< LEFT STRING	VARIABLE " formName"			RIGHT
-	// << LEFT INT		VARIABLE " formGradeToSign"		RIGHT
-	// << LEFT INT		VARIABLE " formGradeToExecute"	RIGHT
 	<< std::endl;
 }
 
@@ -48,23 +48,33 @@ int which_sign(std::string str)
 
 int main(int argc, char **argv)
 {
-	if (argc == 4)
+	if (argc == 6)
 	{
 		try
 		{
-			Bureaucrat bureaucrat(argv[1], which_grade(argv[2]));
+			Bureaucrat bureaucrat(argv[4], which_grade(argv[5]));
+			std::cout << bureaucrat << std::endl;
 			bureaucrat.incrementGrade();
 			bureaucrat.decrementGrade();
 			bureaucrat.decrementGrade();
 			std::cout << bureaucrat << std::endl;
-			ShrubberyCreationForm form(argv[3]);
-			std::cout << form << std::endl;
-			form.beSigned(bureaucrat);
-			form.execute(bureaucrat);
+			ShrubberyCreationForm shrubbery(argv[1]);
+			std::cout << shrubbery << std::endl;
+			shrubbery.beSigned(bureaucrat);
+			shrubbery.execute(bureaucrat);
+			RobotomyRequestForm robotomy(argv[2]);
+			std::cout << robotomy << std::endl;
+			robotomy.beSigned(bureaucrat);
+			robotomy.execute(bureaucrat);
+			PresidentialPardonForm president(argv[3]);
+			std::cout << president << std::endl;
+			president.beSigned(bureaucrat);
+			president.AForm::execute(bureaucrat);
+			std::cout << president << std::endl;
 		}
 		catch(std::exception &e)
 		{
-			std::cout << EXCEPTION << e.what() << std::endl;
+			std::cout << EXCEPTION << e.what() << RESET << std::endl;
 		}
 	}
 	else
