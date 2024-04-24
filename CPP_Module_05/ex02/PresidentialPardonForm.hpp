@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 15:13:55 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/24 16:57:18 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:02:31 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ class PresidentialPardonForm : public AForm
 		PresidentialPardonForm &operator=(const PresidentialPardonForm &src);
 		~PresidentialPardonForm();
 
-		void execute(const Bureaucrat &executor);
+		void execute(const Bureaucrat &executor) const;
 };

@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 15:13:21 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/24 17:02:34 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:02:00 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ RobotomyRequestForm::~RobotomyRequestForm()
 /* ************************************************************************** */
 
 
-void RobotomyRequestForm::execute(const Bureaucrat &executor)
+void RobotomyRequestForm::execute(const Bureaucrat &executor) const
 {
 	if (!this->getIsSigned())
 		throw (AForm::NotSignedYet());

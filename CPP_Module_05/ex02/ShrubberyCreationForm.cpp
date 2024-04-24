@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 15:12:26 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/24 16:43:43 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:02:06 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) 
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src)
 {
-	*static_cast<AForm *>(this) = src;
+	this->AForm::operator=(src);
 	this->_target = src._target;
 	return (*this);
 }
@@ -40,7 +40,7 @@ ShrubberyCreationForm::~ShrubberyCreationForm()
 /* ************************************************************************** */
 
 
-void ShrubberyCreationForm::execute(const Bureaucrat &executor)
+void ShrubberyCreationForm::execute(const Bureaucrat &executor) const
 {
 	if (!this->getIsSigned())
 		throw (AForm::NotSignedYet());

@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:02:39 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/24 17:12:33 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:13:21 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,21 @@ void Bureaucrat::signForm(AForm &f)
 		<< " because he couldn't find his pen \e[4m(grade "
 		<< this->getGrade() << " > grade " << f.getGradeToSign() << ")";
 	std::cout << std::endl << RESET;
+}
+
+void Bureaucrat::executeForm(AForm const &form)
+{
+	try
+	{
+		form.execute(*this);
+		std::cout << SIGN << this->getName() << " executed the form called "
+		<< form.getName() << ".\n" << RESET;
+	}
+	catch(std::exception &e)
+	{
+		std::cout << EXCEPTION << e.what() << std::endl;
+	}
+	
 }
 
 std::ostream &operator<<(std::ostream &o, const Bureaucrat &b)

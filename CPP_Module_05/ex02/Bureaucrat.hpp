@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:02:20 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/24 17:01:00 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:03:36 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ class Bureaucrat
 		void incrementGrade();
 		void decrementGrade();
 		void signForm(class AForm &f);
+		void executeForm(class AForm const &form);
 
 
 		class GradeTooLowException : public std::exception
@@ -64,6 +65,13 @@ class Bureaucrat
        		public:
         		virtual const char *what() const throw() {
 					return ("Wrong parameter.");
+        	}
+     	};
+		class NotSignedYet : public std::exception
+		{
+       		public:
+        		virtual const char *what() const throw() {
+            	   return ("Not signed yet.");
         	}
      	};
 };

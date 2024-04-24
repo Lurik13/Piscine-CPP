@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:02:03 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/24 17:37:13 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:14:43 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,15 +61,15 @@ int main(int argc, char **argv)
 			ShrubberyCreationForm shrubbery(argv[1]);
 			std::cout << shrubbery << std::endl;
 			shrubbery.beSigned(bureaucrat);
-			shrubbery.execute(bureaucrat);
+			bureaucrat.executeForm(shrubbery);
 			RobotomyRequestForm robotomy(argv[2]);
 			std::cout << robotomy << std::endl;
 			robotomy.beSigned(bureaucrat);
-			robotomy.execute(bureaucrat);
+			bureaucrat.executeForm(robotomy);
 			PresidentialPardonForm president(argv[3]);
 			std::cout << president << std::endl;
 			president.beSigned(bureaucrat);
-			president.AForm::execute(bureaucrat);
+			bureaucrat.executeForm(president);
 			std::cout << president << std::endl;
 		}
 		catch(std::exception &e)

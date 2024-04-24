@@ -54,7 +54,7 @@ class AForm
 		virtual void checkGrade(int grade, int required);
 		
 		void beSigned(class Bureaucrat &b);
-		virtual void execute(const Bureaucrat &executor) = 0;
+		virtual void execute(const Bureaucrat &executor) const = 0;
 
 
 		class GradeTooLowException : public std::exception

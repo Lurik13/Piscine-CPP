@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 15:12:04 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/24 12:07:14 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/24 18:02:21 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &src);
 		~ShrubberyCreationForm();
 
-		void execute(const Bureaucrat &executor);
+		void execute(const Bureaucrat &executor) const;
 };
