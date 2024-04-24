@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 15:12:04 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/24 11:53:24 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/24 12:07:14 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 class ShrubberyCreationForm : public AForm
 {
 	private:
+		std::string _target;
 	public:
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(const std::string name);
+		ShrubberyCreationForm(const std::string target = "default");
 		ShrubberyCreationForm(const ShrubberyCreationForm &copy);
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &src);
 		~ShrubberyCreationForm();

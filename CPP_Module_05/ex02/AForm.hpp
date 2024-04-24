@@ -37,13 +37,13 @@ class AForm
 {
 	private:
 		const std::string _name;
-		bool _is_signed;
 		const int _grade_to_sign;
 		const int _grade_to_execute;
+		bool _is_signed;
 	public:
-		AForm();
-		AForm(const std::string name, const int grade_to_sign, \
-			const int grade_to_execute);
+		// AForm();
+		AForm(const std::string name = "unnamed", int grade_to_sign = 63, \
+			int grade_to_execute = 34, bool is_signed = 0);
 		AForm(const AForm &copy);
 		AForm &operator=(const AForm &copy);
 		virtual ~AForm();

@@ -6,56 +6,37 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 15:12:26 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/24 11:47:20 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/24 12:19:33 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(): AForm::AForm(), _name()
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string target) \
+	: AForm::AForm(target, 145, 137), _target(target)
 {
-}
-
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string name, \
-	const int grade_to_sign, const int grade_to_execute) : _name(name), \
-	_grade_to_sign(grade_to_sign), _grade_to_execute(grade_to_execute)
-{
-	std::cout << "-----------------------\n" << this->_name;                                                                                                                                                                         ;
-	this->_is_signed = 0;
-	this->checkGrade(grade_to_sign, REQUIRED_SIGN);
-	this->checkGrade(grade_to_execute, REQUIRED_EXEC);
-	std::cout << "ShrubberyCreationForm " << this->_name << " constructed.\n";
+	std::cout << "ShrubberyCreationForm " << this->_target << " constructed.\n";
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &copy) : \
-	_name(copy._name), _is_signed(copy._is_signed), \
-	_grade_to_sign(copy._grade_to_sign), _grade_to_execute(copy._grade_to_execute) \
+	_target(copy._target)
 {
-	std::cout << "ShrubberyCreationForm " << this->_name << " constructed from copy.\n";
+	std::cout << "ShrubberyCreationForm " << this->_target << " constructed from copy.\n";
 }
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &src)
 {
-	this->_is_signed = src._is_signed;
+	*static_cast<AForm *>(this) = src;
+	this->_target = src._target;
 	return (*this);
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm()
 {
-	std::cout << "ShrubberyCreationForm " << this->_name << " destructed.\n";
+	std::cout << "ShrubberyCreationForm " << this->_target << " destructed.\n";
 }
 
 /* ************************************************************************** */
-
-void	ShrubberyCreationForm::checkGrade(int grade, int required)
-{
-	if (required == REQUIRED_SIGN && grade > 145)
-		throw (AForm::GradeTooLowException());
-	if (required == REQUIRED_EXEC && grade > 137)
-		throw (AForm::GradeTooLowException());
-	if (grade < 1)
-		throw (AForm::GradeTooHighException());
-}
 
 void ShrubberyCreationForm::execute(const Bureaucrat &executor)
 {

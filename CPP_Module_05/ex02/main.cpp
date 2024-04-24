@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:02:03 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/24 11:20:12 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/24 12:20:14 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ void	help()
 	<< LEFT	STRING	VARIABLE " bureaucratName"		RIGHT
 	<< LEFT INT		VARIABLE " bureaucratGrade"		RIGHT
 	<< LEFT STRING	VARIABLE " formName"			RIGHT
-	<< LEFT INT		VARIABLE " formGradeToSign"		RIGHT
-	<< LEFT INT		VARIABLE " formGradeToExecute"	RIGHT
+	// << LEFT INT		VARIABLE " formGradeToSign"		RIGHT
+	// << LEFT INT		VARIABLE " formGradeToExecute"	RIGHT
 	<< std::endl;
 }
 
@@ -48,7 +48,7 @@ int which_sign(std::string str)
 
 int main(int argc, char **argv)
 {
-	if (argc == 6)
+	if (argc == 4)
 	{
 		try
 		{
@@ -57,7 +57,7 @@ int main(int argc, char **argv)
 			bureaucrat.decrementGrade();
 			bureaucrat.decrementGrade();
 			std::cout << bureaucrat << std::endl;
-			ShrubberyCreationForm form(argv[3], which_grade(argv[4]), which_grade(argv[5]));
+			ShrubberyCreationForm form(argv[3]);
 			std::cout << form << std::endl;
 			form.beSigned(bureaucrat);
 			form.execute(bureaucrat);

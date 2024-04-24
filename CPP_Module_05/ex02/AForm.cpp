@@ -12,11 +12,11 @@
 
 #include "AForm.hpp"
 
-AForm::AForm() : _name("test"), _grade_to_sign(134), _grade_to_execute(134){}
-
-AForm::AForm(const std::string name, const int grade_to_sign, \
-	const int grade_to_execute) : _name(name), \
-	_grade_to_sign(grade_to_sign), _grade_to_execute(grade_to_execute)
+AForm::AForm(const std::string name, int grade_to_sign,
+	int grade_to_execute, bool is_signed) : _name(name),
+											_grade_to_sign(grade_to_sign),
+											_grade_to_execute(grade_to_execute),
+											_is_signed(is_signed)
 {
 	this->_is_signed = 0;
 	this->checkGrade(grade_to_sign, REQUIRED_SIGN);
@@ -24,8 +24,8 @@ AForm::AForm(const std::string name, const int grade_to_sign, \
 	std::cout << "AForm " << this->_name << " constructed.\n";
 }
 
-AForm::AForm(const AForm &copy) : _name(copy._name), _is_signed(copy._is_signed), \
-	_grade_to_sign(copy._grade_to_sign), _grade_to_execute(copy._grade_to_execute)
+AForm::AForm(const AForm &copy) : _name(copy._name), _grade_to_sign(copy._grade_to_sign), \
+	_grade_to_execute(copy._grade_to_execute), _is_signed(copy._is_signed)
 {
 	std::cout << "AForm " << this->_name << " constructed from copy.\n";
 }
