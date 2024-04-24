@@ -12,19 +12,15 @@
 
 #include "AForm.hpp"
 
-AForm::AForm()
-{
-	this->_name = (std::string)("test");
-
-}
+AForm::AForm() : _name("test"), _grade_to_sign(134), _grade_to_execute(134){}
 
 AForm::AForm(const std::string name, const int grade_to_sign, \
 	const int grade_to_execute) : _name(name), \
 	_grade_to_sign(grade_to_sign), _grade_to_execute(grade_to_execute)
 {
 	this->_is_signed = 0;
-	this->checkGrade(grade_to_sign);
-	this->checkGrade(grade_to_execute);
+	this->checkGrade(grade_to_sign, REQUIRED_SIGN);
+	this->checkGrade(grade_to_execute, REQUIRED_EXEC);
 	std::cout << "AForm " << this->_name << " constructed.\n";
 }
 
@@ -52,9 +48,11 @@ bool AForm::getIsSigned() const {return this->_is_signed;}
 int AForm::getGradeToSign() const {return this->_grade_to_sign;}
 int AForm::getGradeToExecute() const {return this->_grade_to_execute;}
 
-void	AForm::checkGrade(int grade)
+void	AForm::checkGrade(int grade, int required)
 {
-	if (grade > 150)
+	if (required == REQUIRED_SIGN && grade > 145)
+		throw (AForm::GradeTooLowException());
+	if (required == REQUIRED_EXEC && grade > 137)
 		throw (AForm::GradeTooLowException());
 	if (grade < 1)
 		throw (AForm::GradeTooHighException());

@@ -13,6 +13,7 @@
 #pragma once
 
 #include "Bureaucrat.hpp"
+#include "fstream"
 
 #define EXECUTABLE "\033[38;2;255;145;5;3m"
 
@@ -29,9 +30,12 @@
 
 #define VARIABLE "\033[38;2;148;208;241m"
 
+#define REQUIRED_SIGN 0
+#define REQUIRED_EXEC 1
+
 class AForm
 {
-	protected:
+	private:
 		const std::string _name;
 		bool _is_signed;
 		const int _grade_to_sign;
@@ -48,7 +52,7 @@ class AForm
 		bool getIsSigned() const;
 		int getGradeToSign() const;
 		int getGradeToExecute() const;
-		void checkGrade(int grade);
+		virtual void checkGrade(int grade, int required);
 		
 		void beSigned(class Bureaucrat &b);
 		virtual void execute(const Bureaucrat &executor) = 0;

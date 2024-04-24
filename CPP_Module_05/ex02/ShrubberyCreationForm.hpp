@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 15:12:04 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/23 15:43:07 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/24 11:53:24 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,9 @@
 class ShrubberyCreationForm : public AForm
 {
 	private:
-		const std::string _name;
-		bool _is_signed;
-		const int _grade_to_sign;
-		const int _grade_to_execute;
 	public:
-		ShrubberyCreationForm(const std::string name, const int grade_to_sign, \
-			const int grade_to_execute);
+		ShrubberyCreationForm();
+		ShrubberyCreationForm(const std::string name);
 		ShrubberyCreationForm(const ShrubberyCreationForm &copy);
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm &src);
 		~ShrubberyCreationForm();

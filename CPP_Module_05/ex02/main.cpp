@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:02:03 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/23 15:44:59 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/24 11:20:12 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int main(int argc, char **argv)
 			ShrubberyCreationForm form(argv[3], which_grade(argv[4]), which_grade(argv[5]));
 			std::cout << form << std::endl;
 			form.beSigned(bureaucrat);
+			form.execute(bureaucrat);
 		}
 		catch(std::exception &e)
 		{
