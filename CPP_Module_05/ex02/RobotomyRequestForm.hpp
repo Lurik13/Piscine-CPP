@@ -6,9 +6,11 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/23 15:12:58 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/24 18:02:25 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/25 16:09:45 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #include "AForm.hpp"
 

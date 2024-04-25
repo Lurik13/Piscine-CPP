@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/22 13:00:29 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/23 14:52:33 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/25 16:42:19 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,20 @@ void	Form::checkGrade(int grade)
 
 void Form::beSigned(Bureaucrat &b)
 {
-	if (b.getGrade() > this->getGradeToSign()
-		|| b.getGrade() > this->getGradeToExecute())
+	try
 	{
+		if (b.getGrade() > this->getGradeToSign())
+		{
+			b.signForm(*this);
+			throw (Form::GradeTooLowException());
+		}
+		this->_is_signed = 1;
 		b.signForm(*this);
-		throw (Form::GradeTooLowException());
 	}
-	this->_is_signed = 1;
-	b.signForm(*this);
+	catch(std::exception &e)
+	{
+		std::cout << EXCEPTION << e.what() << RESET << std::endl;
+	}
 }
 
 std::ostream &operator<<(std::ostream &o, const Form &f)
