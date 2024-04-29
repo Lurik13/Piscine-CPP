@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/10 09:31:39 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/12 19:44:20 by lribette         ###   ########.fr       */
+/*   Updated: 2024/04/29 17:08:43 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,30 +37,14 @@ bool Fixed::operator==(const Fixed &src) const{
 bool Fixed::operator!=(const Fixed &src) const{
 	return (this->_value != src._value);}
 
-Fixed Fixed::operator+(const Fixed &src) const
-{
-	Fixed temp;
-	temp._value = this->_value + src._value;
-	return(temp);
-}
-Fixed Fixed::operator-(const Fixed &src) const
-{
-	Fixed temp;
-	temp._value = this->_value - src._value;
-	return(temp);
-}
-Fixed Fixed::operator*(const Fixed &src) const
-{
-	Fixed temp;
-	temp._value = this->_value * src._value >> _fract_bit;
-	return(temp);
-}
-Fixed Fixed::operator/(const Fixed &src) const
-{
-	Fixed temp;
-	temp._value = this->_value / src._value << _fract_bit;
-	return(temp);
-}
+Fixed Fixed::operator+(const Fixed &src) const {
+	return (this->toFloat() + src.toFloat());}
+Fixed Fixed::operator-(const Fixed &src) const {
+	return (this->toFloat() - src.toFloat());}
+Fixed Fixed::operator*(const Fixed &src) const {
+	return (this->toFloat() * src.toFloat());}
+Fixed Fixed::operator/(const Fixed &src) const {
+	return (this->toFloat() / src.toFloat());}
 
 Fixed &Fixed::operator++(){
 	this->_value++;
