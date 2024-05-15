@@ -6,18 +6,16 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 18:53:38 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/29 20:05:39 by lribette         ###   ########.fr       */
+/*   Updated: 2024/05/01 15:31:48 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
-int verif_param(int argc, char **argv, ScalarConverter &convert)
+int verif_param(char **argv, ScalarConverter &convert)
 {
 	int nb_dots = 0;
 
-	if (argc != 2)
-		throw (ScalarConverter::InvalidConversion());
 	convert.setValue(argv[1]);
 	if (convert.getValue().length() == 1 && !isdigit(convert.getValue()[0]))
 	{
@@ -40,17 +38,20 @@ int verif_param(int argc, char **argv, ScalarConverter &convert)
 
 int main(int argc, char **argv)
 {
-	ScalarConverter *convert = new ScalarConverter;
-	bool nb_dots = verif_param(argc, argv, *convert);
-	if (nb_dots && convert->getType() != "")
+	if (argc == 2)
 	{
-		convert->setType("double");
-		if (convert->getValue()[convert->getValue().length() - 1] == 'f'
-			&& convert->getType() != "")
-			convert->setType("float");
+		ScalarConverter *convert = new ScalarConverter;
+		bool nb_dots = verif_param(argv, *convert);
+		if (nb_dots && convert->getType() != "")
+		{
+			convert->setType("double");
+			if (convert->getValue()[convert->getValue().length() - 1] == 'f'
+				&& convert->getType() != "")
+				convert->setType("float");
+		}
+		else if (convert->getType() == "")
+			convert->setType("int");
+		convert->print();
+		delete convert; /////////////////////////////////////////////////////////////////////
 	}
-	else if (convert->getType() == "")
-		convert->setType("int");
-	std::cout << "char: " << convert->to_float() << " - " << convert->getType() << std::endl;
-	delete convert; /////////////////////////////////////////////////////////////////////
 }

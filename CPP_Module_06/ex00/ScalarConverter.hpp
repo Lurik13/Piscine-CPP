@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 18:10:35 by lribette          #+#    #+#             */
-/*   Updated: 2024/05/01 15:16:30 by lribette         ###   ########.fr       */
+/*   Updated: 2024/05/01 15:30:49 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,11 @@ class ScalarConverter
 		
 		void print();
 
-		class InvalidConversion : public std::exception
-		{
-			public:
-				virtual const char *what() const throw() {
-					return ("Invalid conversion!");
-				}
-		};
+		// class InvalidConversion : public std::exception
+		// {
+		// 	public:
+		// 		virtual const char *what() const throw() {
+		// 			return ("Invalid conversion!");
+		// 		}
+		// };
 };

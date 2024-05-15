@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 18:49:25 by lribette          #+#    #+#             */
-/*   Updated: 2024/05/01 15:19:42 by lribette         ###   ########.fr       */
+/*   Updated: 2024/05/01 15:45:13 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,5 @@ std::string ScalarConverter::getValue() const {return this->_value;}
 
 void ScalarConverter::print()
 {
-	std::cout
+	std::cout << static_cast<float>(-9) << std::endl;
 }
