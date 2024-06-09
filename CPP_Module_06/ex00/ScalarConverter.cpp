@@ -12,22 +12,33 @@
 
 #include "ScalarConverter.hpp"
 
-ScalarConverter::ScalarConverter() {this->_type = "";}
-ScalarConverter::ScalarConverter(const ScalarConverter &copy) {this->_type = copy._type;}
-ScalarConverter &ScalarConverter::operator=(const ScalarConverter &src) {
-	this->_type = src._type;
-	return *this;
+ScalarConverter::ScalarConverter(){}
+ScalarConverter::ScalarConverter(const ScalarConverter &copy)
+{
+	*this = copy;
+}
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &src)
+{
+	*this = src;
+	return (*this);
 }
 ScalarConverter::~ScalarConverter() {}
 
-void ScalarConverter::setType(std::string type){this->_type = type;}
-void ScalarConverter::setValue(std::string value){this->_value = value;}
-std::string ScalarConverter::getType() const {return this->_type;}
-std::string ScalarConverter::getValue() const {return this->_value;}
 
 
-
-void ScalarConverter::print()
+void	ScalarConverter::convert(std::string str)
 {
-	std::cout << static_cast<float>(-9) << std::endl;
+	int type = whichType(str);
+	std::cout << "type = " << type << std::endl << std::endl;
+	switch (type)
+	{
+		case CHAR:
+			printChar(str);
+			break;
+		// case INT:
+		// 	std::cout << "int: " << static_cast<int>(str[0]) << std::endl;
+		
+		default:
+			break;
+	}
 }

@@ -11,30 +11,20 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include <string>
+
+enum Type { CHAR = 0, INT, FLOAT, DOUBLE, IMPOSSIBLE };
 
 class ScalarConverter
 {
 	private:
-		std::string _type;
-		std::string _value;
-	public:
 		ScalarConverter();
 		ScalarConverter(const ScalarConverter &copy);
 		ScalarConverter &operator=(const ScalarConverter &src);
-		~ScalarConverter();
-
-		void setType(std::string type);
-		void setValue(std::string value);
-		std::string getType() const;
-		std::string getValue() const;
-		
-		void print();
-
-		// class InvalidConversion : public std::exception
-		// {
-		// 	public:
-		// 		virtual const char *what() const throw() {
-		// 			return ("Invalid conversion!");
-		// 		}
-		// };
+		virtual ~ScalarConverter() = 0;
+	public:
+		static void convert(std::string str);
 };
+
+int 		whichType(std::string str);
+void		printChar(std::string str);
