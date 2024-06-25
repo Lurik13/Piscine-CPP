@@ -6,7 +6,7 @@
 #    By: lribette <lribette@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/29 18:16:19 by lribette          #+#    #+#              #
-#    Updated: 2024/04/15 18:05:41 by lribette         ###   ########.fr        #
+#    Updated: 2024/06/25 12:43:43 by lribette         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,3 +60,4 @@ code: fclean all clean
 # $^ : toutes les dépendances 
 # $+ : idem mais chaque dépendance apparait autant de fois qu'elle
 #      est citée et l'ordre d'apparition est conservé
+
