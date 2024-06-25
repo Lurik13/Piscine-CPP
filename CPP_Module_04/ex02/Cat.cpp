@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 18:12:39 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/17 16:27:33 by lribette         ###   ########.fr       */
+/*   Updated: 2024/06/25 14:20:51 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ Cat::Cat()
 {
 	this->_type = "Cat";
 	this->_ideas = new Brain;
+	this->_ideas->setIdeas(1, "mouahahahaha");
 	std::cout << JAURANGE << _type << " constructed.\n" << RESET;
 }
 Cat::Cat(Cat &copy)
@@ -45,3 +46,13 @@ void	Cat::makeSound() const
 }
 
 std::string Cat::getType() const {return this->_type;}
+
+std::string Cat::getBrainIdeas() const
+{
+	return (this->_ideas->getIdeas());
+}
+
+void	Cat::setIdeas(int index, std::string new_idea)
+{
+	this->_ideas->setIdeas(index, new_idea);
+}

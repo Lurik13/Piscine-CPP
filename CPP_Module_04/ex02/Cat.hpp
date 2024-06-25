@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 18:12:00 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/17 15:15:56 by lribette         ###   ########.fr       */
+/*   Updated: 2024/06/25 14:17:44 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,6 @@ class Cat : public Animal
 
 		void makeSound() const;
 		std::string getType() const;
+		std::string getBrainIdeas() const;
+		void		setIdeas(int index, std::string new_idea);
 };

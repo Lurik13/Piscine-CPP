@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 11:24:52 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/17 18:07:29 by lribette         ###   ########.fr       */
+/*   Updated: 2024/06/25 15:05:58 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ int main()
 		std::cout << "-------------------\n";
 		const Animal* dog = new Dog();
 		std::cout << "-------------------\n";
-		const Animal* cat = new Cat();
+		const Cat* cat = new Cat();
 		std::cout << "-------------------\n";
-		const Animal* cat2 = cat;
+		const Cat* cat2 = cat;
 		std::cout << "-------------------\n";
 		
 		const Animal *(animals[6]);
@@ -44,6 +44,7 @@ int main()
 		std::cout << dog->getType() << " " << std::endl;
 		std::cout << cat->getType() << " " << std::endl;
 		cat2->makeSound();
+		std::cout << "cat2 ideas = " << cat2->getBrainIdeas() << std::endl;;
 		cat->makeSound();
 		dog->makeSound();
 		// meta->makeSound();
@@ -63,13 +64,19 @@ int main()
 		std::cout << "------------------------\n";
 		const WrongAnimal* wcat = new WrongCat();
 		std::cout << "------------------------\n";
+		const WrongCat* wcatcat = new WrongCat();
+		std::cout << "------------------------\n";
 
 		std::cout << wdog->getType() << " " << std::endl;
 		std::cout << wcat->getType() << " " << std::endl;
+		std::cout << wcatcat->getType() << " " << std::endl;
+		wcatcat->makeSound();
 		wcat->makeSound();
 		wdog->makeSound();
 		wmeta->makeSound();
 
+		std::cout << "-------------------\n";
+		delete wcatcat;
 		std::cout << "-------------------\n";
 		delete wcat;
 		std::cout << "-------------------\n";

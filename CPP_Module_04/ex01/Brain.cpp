@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 10:51:53 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/17 16:22:39 by lribette         ###   ########.fr       */
+/*   Updated: 2024/06/25 14:17:54 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,17 @@ Brain::~Brain()
 	delete [] this->_ideas;
 	std::cout << PURPLE << "Brain destructed.\n" << RESET;
 
+}
+
+std::string Brain::getIdeas()
+{
+	std::string result = "";
+	for (size_t i = 0; i < 100; i++)
+		result += this->_ideas[i];
+	return (result);
+}
+
+void	Brain::setIdeas(int index, std::string new_idea)
+{
+	this->_ideas[index] = new_idea;
 }

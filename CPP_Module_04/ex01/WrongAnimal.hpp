@@ -28,8 +28,8 @@ class WrongAnimal
 		WrongAnimal();
 		WrongAnimal(WrongAnimal &copy);
 		WrongAnimal &operator=(const WrongAnimal &src);
-		virtual ~WrongAnimal();
+		~WrongAnimal();
 
 		void makeSound() const;
-		virtual std::string getType() const;
+		std::string getType() const;
 };

@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 11:24:52 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/16 19:41:35 by lribette         ###   ########.fr       */
+/*   Updated: 2024/06/25 13:04:40 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,19 @@ int main()
 		std::cout << "------------------------\n";
 		const WrongAnimal* wcat = new WrongCat();
 		std::cout << "------------------------\n";
+		const WrongCat* wcatcat = new WrongCat();
+		std::cout << "------------------------\n";
 
 		std::cout << wdog->getType() << " " << std::endl;
 		std::cout << wcat->getType() << " " << std::endl;
+		std::cout << wcatcat->getType() << " " << std::endl;
+		wcatcat->makeSound();
 		wcat->makeSound();
 		wdog->makeSound();
 		wmeta->makeSound();
 
+		std::cout << "-------------------\n";
+		delete wcatcat;
 		std::cout << "-------------------\n";
 		delete wcat;
 		std::cout << "-------------------\n";
