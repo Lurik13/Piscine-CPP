@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 18:12:39 by lribette          #+#    #+#             */
-/*   Updated: 2024/06/25 14:20:51 by lribette         ###   ########.fr       */
+/*   Updated: 2024/06/26 14:39:56 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Cat::Cat()
 Cat::Cat(Cat &copy)
 {
 	this->_type = copy._type;
-	this->_ideas = copy._ideas;
+	this->_ideas = new Brain(*copy._ideas);
 	std::cout << JAURANGE << _type << " constructed.\n" << RESET;
 }
 Cat &Cat::operator=(const Cat &src)

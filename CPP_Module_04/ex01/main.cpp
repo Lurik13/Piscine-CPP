@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 11:24:52 by lribette          #+#    #+#             */
-/*   Updated: 2024/06/25 14:20:55 by lribette         ###   ########.fr       */
+/*   Updated: 2024/06/26 14:41:37 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,14 @@
 
 int main()
 {
+	{
+		Dog basic;
+		{
+			Dog tmp = basic;
+		}
+		std::cout << "check" << std::endl;
+	}
+	std::cout << "\n\n--------------------------------------\n\n\n";
 	{
 		const Animal* meta = new Animal();
 		std::cout << "-------------------\n";

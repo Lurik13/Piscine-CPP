@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 18:12:39 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/17 16:24:34 by lribette         ###   ########.fr       */
+/*   Updated: 2024/06/26 14:38:28 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ Dog::Dog()
 Dog::Dog(Dog &copy)
 {
 	this->_type = copy._type;
-	this->_ideas = copy._ideas;
+	this->_ideas = new Brain(*copy._ideas);
 	std::cout << BROWN << _type << " constructed.\n" << RESET;
 }
 Dog &Dog::operator=(const Dog &src)
