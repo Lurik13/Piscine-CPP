@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:02:03 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/23 14:54:07 by lribette         ###   ########.fr       */
+/*   Updated: 2024/07/04 11:25:12 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ int main(int argc, char **argv)
 			Form form(argv[3], which_grade(argv[4]), which_grade(argv[5]));
 			std::cout << form << std::endl;
 			form.beSigned(bureaucrat);
+			std::cout << form << std::endl;
 		}
 		catch(std::exception &e)
 		{

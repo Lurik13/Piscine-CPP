@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:02:39 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/24 18:13:21 by lribette         ###   ########.fr       */
+/*   Updated: 2024/07/04 13:43:14 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void Bureaucrat::executeForm(AForm const &form)
 	}
 	catch(std::exception &e)
 	{
-		std::cout << EXCEPTION << e.what() << std::endl;
+		std::cout << EXCEPTION << e.what() << RESET << std::endl;
 	}
 	
 }

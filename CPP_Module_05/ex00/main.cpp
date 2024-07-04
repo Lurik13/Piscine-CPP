@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:02:03 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/21 17:55:41 by lribette         ###   ########.fr       */
+/*   Updated: 2024/07/04 11:12:20 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int main(int argc, char **argv)
 		}
 		catch(std::exception &e)
 		{
-			std::cout << EXCEPTION << e.what() << std::endl;
+			std::cout << EXCEPTION << e.what() << RESET << std::endl;
 		}
 	}
 	else

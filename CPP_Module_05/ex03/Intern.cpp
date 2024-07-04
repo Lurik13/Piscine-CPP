@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 14:56:28 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/25 16:47:30 by lribette         ###   ########.fr       */
+/*   Updated: 2024/07/04 13:59:38 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ AForm *Intern::makeForm(std::string name, std::string target)
 		i++;
 	if (i < 3)
 		std::cout << EXECUTION << "Intern creates " << nameptr[i] << RESET << std::endl;
-	else
-		std::cout << EXECUTION << "Intern twiddles his thumbs." << RESET << std::endl;
 	switch (i)
 	{
 		case 0:
@@ -36,6 +34,7 @@ AForm *Intern::makeForm(std::string name, std::string target)
 		case 2:
 			return (new PresidentialPardonForm(target));
 		default:
+			std::cout << EXECUTION << "Intern twiddles his thumbs." << RESET << std::endl;
 			throw Intern::FormNotFound();
 	}
 }

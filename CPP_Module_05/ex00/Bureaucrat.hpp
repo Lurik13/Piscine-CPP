@@ -6,7 +6,7 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:02:20 by lribette          #+#    #+#             */
-/*   Updated: 2024/04/22 19:05:36 by lribette         ###   ########.fr       */
+/*   Updated: 2024/07/04 11:18:33 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 #define INCREMENT "\033[38;2;0;234;0;1m"
 #define DECREMENT "\033[38;2;234;0;0;1m"
-#define EXCEPTION "\033[38;2;172;88;255;1m"
+#define EXCEPTION "\033[38;2;172;88;255;1m\033[5m"
 #define COUT "\033[38;2;234;0;234;1m"
 #define RESET "\e[0m"
 
