@@ -6,14 +6,15 @@
 /*   By: lribette <lribette@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 18:10:35 by lribette          #+#    #+#             */
-/*   Updated: 2024/05/01 15:30:49 by lribette         ###   ########.fr       */
+/*   Updated: 2024/07/25 11:18:46 by lribette         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <string>
+#include <cstdlib>
 
-enum Type { CHAR = 0, INT, FLOAT, DOUBLE, IMPOSSIBLE };
+enum Type { CHAR = 0, INT, FLOAT, DOUBLE, SPECIAL , IMPOSSIBLE };
 
 class ScalarConverter
 {
@@ -23,7 +24,7 @@ class ScalarConverter
 		ScalarConverter &operator=(const ScalarConverter &src);
 		virtual ~ScalarConverter() = 0;
 	public:
-		static void convert(std::string str);
+		static void convert(const std::string str);
 };
 
 int 		whichType(std::string str);

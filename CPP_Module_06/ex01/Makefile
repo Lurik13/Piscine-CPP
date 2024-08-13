@@ -6,7 +6,7 @@
 #    By: lribette <lribette@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/29 18:16:19 by lribette          #+#    #+#              #
-#    Updated: 2024/04/29 19:13:13 by lribette         ###   ########.fr        #
+#    Updated: 2024/06/14 10:42:46 by lribette         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ FLAGS += -Wall -Wextra -Werror -g -std=c++98
 
 # ----------------------------- Sources ----------------------------- #
 
-NAME = scalarConverter
-FILES = main ScalarConverter
+NAME = ircserv
+FILES = server Socket Parse Commands CommandsUtils mode Channel
 
 SRCS = $(addsuffix .cpp, $(FILES))
 OBJS = $(addsuffix .o, $(FILES))

@@ -14,7 +14,6 @@
 
 int main(int argc, char **argv)
 {
-	(void)argv;
 	if (argc == 2)
 	{
 		ScalarConverter::convert(argv[1]);
@@ -22,3 +21,6 @@ int main(int argc, char **argv)
 	else
 		std::cerr << "./scalarConverter <number>" << std::endl;
 }
+
+
+// 13f ; a
