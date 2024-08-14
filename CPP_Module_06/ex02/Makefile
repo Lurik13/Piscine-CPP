@@ -16,8 +16,8 @@ FLAGS += -Wall -Wextra -Werror -g -std=c++98
 
 # ----------------------------- Sources ----------------------------- #
 
-NAME = serialization
-FILES = main Serializer
+NAME = base
+FILES = 
 
 SRCS = $(addsuffix .cpp, $(FILES))
 OBJS = $(addsuffix .o, $(FILES))

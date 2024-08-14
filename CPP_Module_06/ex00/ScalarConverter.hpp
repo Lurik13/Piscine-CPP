@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
 #include <iostream>
 #include <string>
 #include <cstdlib>
@@ -26,6 +28,3 @@ class ScalarConverter
 	public:
 		static void convert(const std::string str);
 };
-
-int 		whichType(std::string str);
-void		printChar(std::string str);
