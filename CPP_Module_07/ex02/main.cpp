@@ -4,6 +4,7 @@
 #define MAX_VAL 13 //
 int main(void)
 {
+    Array<int> empty;
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
     srand(time(NULL));
@@ -29,6 +30,15 @@ int main(void)
             return 1;
         }
     }
+    std::cout << "------------------------ try catch:\n"; //
+    try //
+    {
+        empty[0] = 0; //
+    }
+    catch(std::runtime_error &e) //
+    {
+        std::cerr << "\e[38;2;170;0;0;1m" << e.what() << "\e[0m\n"; //
+    }
     try
     {
         numbers[-2] = 0;
@@ -45,6 +55,7 @@ int main(void)
     {
         std::cerr << "\e[38;2;170;0;0;1m" << e.what() << "\e[0m\n"; //
     }
+    std::cout << "------------------------\n"; //
 
     for (int i = 0; i < MAX_VAL; i++)
     {

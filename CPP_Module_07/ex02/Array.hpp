@@ -9,7 +9,6 @@ template<typename T>
 class Array
 {
 	public:
-		// Array();
 		Array(unsigned int n = 0);
 		Array(const Array &src);
 		Array &operator=(const Array &src);
