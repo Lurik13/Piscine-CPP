@@ -16,8 +16,8 @@ FLAGS += -Wall -Wextra -Werror -g -std=c++98
 
 # ----------------------------- Sources ----------------------------- #
 
-NAME = easyFind
-FILES = main
+NAME = span
+FILES = main Span
 
 SRCS = $(addsuffix .cpp, $(FILES))
 OBJS = $(addsuffix .o, $(FILES))
