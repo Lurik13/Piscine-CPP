@@ -39,6 +39,7 @@ void Span::printNumbers(std::vector<int> numbers)
 		else
 			std::cout << "\e[38;2;255;255;255;1m" << *iter << " ";
 		i++;
+		usleep(100);
 	}
 	std::cout << "\e[0m" << std::endl;
 }
@@ -57,7 +58,7 @@ void Span::printSortedNumbers()
 void Span::addNumber(int number)
 {
 	if (this->_size < this->_numbers.size() + 1)
-		throw(std::runtime_error("The Span is full!"));
+		throw(std::runtime_error("The container is full!"));
 	this->_numbers.push_back(number);
 	this->_sortednumbers.push_back(number);
 }
@@ -86,4 +87,10 @@ int Span::longestSpan()
 	std::vector<int>::iterator first = this->_sortednumbers.begin();
 	std::vector<int>::iterator last = this->_sortednumbers.end() - 1;
 	return (*last - *first);
+}
+
+void Span::addRange(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	for (; begin != end; ++begin)
+		addNumber(*begin);
 }
