@@ -3,7 +3,9 @@
 #include <iostream>
 #include <stack>
 #include <list>
+#include <cstdlib>
 
+#define ERROR "\e[38;2;170;0;0;1;4m"
 #define BLUE "\e[38;2;0;150;250;1m"
 #define GOLD "\e[38;2;245;196;38;1m"
 #define PURPLE "\e[38;2;200;70;250;1;4m"
