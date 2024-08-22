@@ -14,14 +14,14 @@ int main(int argc, char **argv)
 		std::cout << ERROR "I need \e[7mtput cols" RESET ERROR "!" << std::endl;
 		return (EXIT_FAILURE);
 	}
-	int responsive_spaces = (atoi(argv[1]) - 69) / 2;
+	int responsive_spaces = (atoi(argv[1]) - 63) / 2;
 	
 	{
 		responsiveness(responsive_spaces);
 		std::cout << TOP;
 		responsiveness(responsive_spaces);
-		std::cout << LEFT "                   " PURPLE "Tests with our MutantStack:" RESET
-		<< "                   " RIGHT << std::endl;
+		std::cout << LEFT "                " PURPLE "Tests with our MutantStack:" RESET
+		<< "                  " RIGHT << std::endl;
 		responsiveness(responsive_spaces);
 		std::cout << LEFT EMPTY_LINE RIGHT << std::endl;
 
@@ -29,13 +29,13 @@ int main(int argc, char **argv)
 		mstack.push(5);
 		mstack.push(17);
 		responsiveness(responsive_spaces);
-		std::cout << LEFT "Valeur du haut apres avoir push 5 et 17: " RESET
-		<< mstack.top() << "                      " RIGHT << std::endl;
+		std::cout << LEFT "Top value after pushing 5 and 17: " RESET
+		<< mstack.top() << "                         " RIGHT << std::endl;
 
 		mstack.pop();
 		responsiveness(responsive_spaces);
-		std::cout << LEFT "Taille de la pile apres avoir retire la valeur du haut: " RESET
-		<< mstack.size() << "        " RIGHT << std::endl;
+		std::cout << LEFT "Stack size after removing the top value: " RESET
+		<< mstack.size() << "                   " RIGHT << std::endl;
 		
 		mstack.push(3);
 		mstack.push(5);
@@ -44,10 +44,10 @@ int main(int argc, char **argv)
 		responsiveness(responsive_spaces);
 		std::cout << LEFT EMPTY_LINE RIGHT << std::endl;
 		responsiveness(responsive_spaces);
-		std::cout << LEFT "On empile 4 autres valeurs.                                      " << RIGHT << std::endl;
+		std::cout << LEFT "We stack 4 other values.                                     " << RIGHT << std::endl;
 
 		responsiveness(responsive_spaces);
-		std::cout << LEFT "Affichage de la pile en utilisant notre iterator: " RESET;
+		std::cout << LEFT "Displaying the stack using our iterator: " RESET;
 		MutantStack<int>::iterator first = mstack.begin();
 		MutantStack<int>::iterator last = mstack.end();
 		++first;
@@ -59,14 +59,14 @@ int main(int argc, char **argv)
 			if (first != last)
 				std::cout << "; ";
 		}
-		std::cout << RIGHT << std::endl;
+		std::cout << "     " RIGHT << std::endl;
 		responsiveness(responsive_spaces);
 		std::cout << MIDDLE;
 	}
 	{
 		responsiveness(responsive_spaces);
-		std::cout << LEFT "                       " PURPLE "Tests with a list:" RESET
-		<< "                        " RIGHT << std::endl;
+		std::cout << LEFT "                     " PURPLE "Tests with a list:" RESET
+		<< "                      " RIGHT << std::endl;
 		responsiveness(responsive_spaces);
 		std::cout << LEFT EMPTY_LINE RIGHT << std::endl;
 
@@ -74,13 +74,13 @@ int main(int argc, char **argv)
 		mlist.push_back(5);
 		mlist.push_back(17);
 		responsiveness(responsive_spaces);
-		std::cout << LEFT "Valeur du haut apres avoir push 5 et 17: " RESET
-		<< mlist.back() << "                      " RIGHT << std::endl;
+		std::cout << LEFT "Top value after pushing 5 and 17: " RESET
+		<< mlist.back() << "                         " RIGHT << std::endl;
 
 		mlist.pop_back();
 		responsiveness(responsive_spaces);
-		std::cout << LEFT "Taille de la pile apres avoir retire la valeur du haut: " RESET
-		<< mlist.size() << "        " RIGHT << std::endl;
+		std::cout << LEFT "Stack size after removing the top value: " RESET
+		<< mlist.size() << "                   " RIGHT << std::endl;
 		
 		mlist.push_back(3);
 		mlist.push_back(5);
@@ -89,10 +89,10 @@ int main(int argc, char **argv)
 		responsiveness(responsive_spaces);
 		std::cout << LEFT EMPTY_LINE RIGHT << std::endl;
 		responsiveness(responsive_spaces);
-		std::cout << LEFT "On empile 4 autres valeurs.                                      " << RIGHT << std::endl;
+		std::cout << LEFT "We stack 4 other values.                                     " << RIGHT << std::endl;
 
 		responsiveness(responsive_spaces);
-		std::cout << LEFT "Affichage de la pile en utilisant notre iterator: " RESET;
+		std::cout << LEFT "Displaying the stack using the list iterator: " RESET;
 		int size = mlist.size();
 		while (size)
 		{
