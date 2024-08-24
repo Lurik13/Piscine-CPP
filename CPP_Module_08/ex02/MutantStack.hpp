@@ -11,10 +11,10 @@
 #define PURPLE "\e[38;2;200;70;250;1;4m"
 #define TOP GOLD "╔═══════════════════════════════════════════════════════════════╗" RESET "\n"
 #define LEFT GOLD "║" RESET " " BLUE
-#define RIGHT RESET " " GOLD "║"
+#define RIGHT RESET " " GOLD "║" RESET
 #define MIDDLE GOLD "╠═══════════════════════════════════════════════════════════════╣" RESET "\n"
 #define BOTTOM GOLD "╚═══════════════════════════════════════════════════════════════╝" RESET "\n"
-#define EMPTY_LINE "                                                             "
+#define EMPTY_LINE RESET "                                                             "
 #define RESET "\e[0m"
 
 template<typename T>
