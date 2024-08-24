@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <cstring>
 #include <map>
+#include <unistd.h>
 
 #define GREEN RESET "\e[38;2;210;210;0m"
 #define PURPLE RESET "\e[38;2;170;50;170;1m"

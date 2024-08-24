@@ -55,6 +55,8 @@ void BitcoinExchange::fill_data_lines()
 	std::getline(data_file, current_data_line);
 	while (std::getline(data_file, current_data_line))
 	{
+		std::cout << current_data_line << "\r\e[K";
+		usleep(300);
 		this->data_lines.insert(std::pair<std::string, float>( \
 			current_data_line.substr(0, 10),
 			atof(current_data_line.substr(11, current_data_line.size()).c_str())));
