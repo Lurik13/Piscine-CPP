@@ -23,6 +23,7 @@ class BitcoinExchange
 		BitcoinExchange(const BitcoinExchange &src);
 		BitcoinExchange &operator=(const BitcoinExchange &src);
 		~BitcoinExchange();
+		void bitcoin_algorithm();
 
 	private:
 		std::ifstream file;

@@ -4,19 +4,6 @@ BitcoinExchange::BitcoinExchange(int argc, char **argv)
 {
 	verif_params(argc, argv);
 	fill_data_lines();
-	while (std::getline(this->file, this->current_line))
-	{
-		try
-		{
-			parse_line();
-			std::map<std::string, float>::iterator it = find_line();
-			calculate_line(it);
-		}
-		catch(const std::exception& e)
-		{
-	        std::cerr << PURPLE "ERROR:" RESET " " ERROR << e.what() << "\n" RESET;
-		}
-	}
 }
 
 BitcoinExchange::BitcoinExchange(const BitcoinExchange &src)
@@ -33,6 +20,23 @@ BitcoinExchange &BitcoinExchange::operator=(const BitcoinExchange &src)
 BitcoinExchange::~BitcoinExchange()
 {
 	this->file.close();
+}
+
+void BitcoinExchange::bitcoin_algorithm()
+{
+	while (std::getline(this->file, this->current_line))
+	{
+		try
+		{
+			parse_line();
+			std::map<std::string, float>::iterator it = find_line();
+			calculate_line(it);
+		}
+		catch(const std::exception& e)
+		{
+	        std::cerr << PURPLE "ERROR:" RESET " " ERROR << e.what() << "\n" RESET;
+		}
+	}
 }
 
 void BitcoinExchange::verif_params(int argc, char **argv)
