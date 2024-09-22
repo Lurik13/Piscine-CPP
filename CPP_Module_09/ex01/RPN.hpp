@@ -16,10 +16,11 @@ class RPN
 		RPN &operator=(const RPN &src);
 		~RPN();
 
+		void polish_calculator();
+
 	private:
+		void verif_params(int argc, char **argv);
+		
 		std::string input;
 		std::stack<int> rpn_stack;
-		
-		void verif_params(int argc, char **argv);
-		void polish_calculator();
 };

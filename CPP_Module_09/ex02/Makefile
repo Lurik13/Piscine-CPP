@@ -17,7 +17,7 @@ FLAGS += -Wall -Wextra -Werror -g -std=c++98
 # ----------------------------- Sources ----------------------------- #
 
 NAME = PmergeMe
-FILES = main PmergeMe
+FILES = main Parsing PmergeMe Sort
 
 SRCS = $(addsuffix .cpp, $(FILES))
 OBJS = $(addsuffix .o, $(FILES))

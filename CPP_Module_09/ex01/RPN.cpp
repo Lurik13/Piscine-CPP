@@ -3,7 +3,6 @@
 RPN::RPN(int argc, char **argv)
 {
 	verif_params(argc, argv);
-	polish_calculator();
 }
 
 RPN::RPN(const RPN &src)
