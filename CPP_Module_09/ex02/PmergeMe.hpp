@@ -14,6 +14,7 @@
 #define RESET "\e[0m"
 
 typedef std::deque<int>::iterator dequeIt;
+typedef std::deque< std::pair< int, int > > dequePair;
 
 class PmergeMe
 {
@@ -24,10 +25,11 @@ class PmergeMe
 		~PmergeMe();
 
 		void print_numbers(std::string str);
+		void print_numbers_pair(const std::string &str, const dequePair &deq);
 		void sort_numbers();
-		void even_sort_deque();
-		void merge_sort(std::deque<int> &deq, int left, int right);
-		void merge(std::deque<int> &deq, int left, int mid, int right);
+		dequePair even_sort_deque();
+		void merge_sort(dequePair &deq, int left, int right);
+		void merge(dequePair &deq, int left, int mid, int right);
 
 	private:
 		/* PmergeMe.cpp */
@@ -41,6 +43,7 @@ class PmergeMe
 		/* Sort.cpp */
 
 		std::deque<int> numbers_deque;
+		long long solo_number;
 };
 
 // https://www.programiz.com/dsa/merge-sort
