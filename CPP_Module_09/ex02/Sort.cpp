@@ -29,7 +29,7 @@ void PmergeMe::merge_sort(std::deque<int> &deq, int left, int right)
 
 void PmergeMe::merge(std::deque<int> &deq, int left, int mid, int right)
 {
-	std::deque<int> temp;
+	std::deque<int> temp(right - left + 1);
 	int i = left;
 	int j = mid + 1;
 	int k = 0;

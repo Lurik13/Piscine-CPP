@@ -27,7 +27,6 @@ class BitcoinExchange
 
 	private:
 		std::ifstream file;
-		std::pair<std::string, float> input_line;
 		std::string input_date;
 		float input_value;
 		std::string current_line;

@@ -105,8 +105,8 @@ void BitcoinExchange::parse_line()
 	size_t value_index = this->current_line.find(" | ");
 	if (value_index == std::string::npos)
 		throw(std::runtime_error("bad input ➤ " HIGHLIGHTED_ERROR + this->current_line + RESET));
-	this->input_line.first = parse_date(this->current_line.substr(0, value_index));
-	this->input_line.second = parse_value(this->current_line.substr(value_index + 3));
+	this->input_date = parse_date(this->current_line.substr(0, value_index));
+	this->input_value = parse_value(this->current_line.substr(value_index + 3));
 }
 
 std::map<std::string, float>::iterator BitcoinExchange::skip_to_date( \
@@ -116,7 +116,7 @@ std::map<std::string, float>::iterator BitcoinExchange::skip_to_date( \
 	std::string data_string = "";
 	std::string previous_data_string = "";
 	for (int i = begin; i < end; ++i)
-		input_string += this->input_line.first[i];
+		input_string += this->input_date[i];
 	for (; it != this->data_lines.end(); ++it)
 	{
 		data_string = "";
@@ -141,13 +141,13 @@ std::map<std::string, float>::iterator BitcoinExchange::find_line()
 	it = skip_to_date(0, 4, it);
 	it = skip_to_date(5, 7, it);
 	it = skip_to_date(8, 10, it);
-	if (it->first != this->input_line.first)
+	if (it->first != this->input_date)
 		return (--it);
 	return (it);
 }
 
 void BitcoinExchange::calculate_line(std::map<std::string, float>::iterator it)
 {
-	std::cout << GREEN << this->input_line.first << " ➤ " << this->input_line.second
-	<< " = \e[4m" << it->second * this->input_line.second << std::endl;
+	std::cout << GREEN << this->input_date << " ➤ " << this->input_value
+	<< " = \e[4m" << it->second * this->input_value << std::endl;
 }
