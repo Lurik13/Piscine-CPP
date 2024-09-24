@@ -16,7 +16,7 @@ dequePair PmergeMe::even_sort_deque()
 	}
 
 	if (this->numbers_deque.size() % 2 == 1)
-		this->solo_number = this->numbers_deque[this->numbers_deque.size() - 1];
+		this->single_number = this->numbers_deque[this->numbers_deque.size() - 1];
 	dequePair numbers_deque_pair(this->numbers_deque.size() / 2);
 	for (size_t i = 0; i < this->numbers_deque.size(); ++i)
 	{
@@ -72,27 +72,38 @@ void PmergeMe::insert_sort(dequePair &deq_pair)
 			this->numbers_deque.push_back(deq_pair[i].second);
 		}
 	}
-	if (this->solo_number != 2147483648)
-		insert(this->solo_number);
+	if (this->single_number != NO_SINGLE_NUMBER)
+		insert(this->single_number);
 }
 
 void PmergeMe::insert(int number)
 {
 	if (this->numbers_deque.size() == 0)
 		this->numbers_deque.push_back(number);
+	else if (number < this->numbers_deque[0])
+		this->numbers_deque.push_front(number);
 	else if (number > this->numbers_deque[this->numbers_deque.size() - 1])
 		this->numbers_deque.push_back(number);
 	else
 	{
-		for (size_t j = 0; j != this->numbers_deque.size(); ++j)
+		int left = 0;
+		int right = this->numbers_deque.size() - 1;
+		int middle = (left + right) / 2;
+		while (left <= right)
 		{
-			if (number < this->numbers_deque[j])
+			if (middle > 0 && \
+				number > this->numbers_deque[middle - 1] && number < this->numbers_deque[middle])
 			{
 				dequeIt it = this->numbers_deque.begin();
-				std::advance(it, j);
+				std::advance(it, middle);
 				this->numbers_deque.insert(it, number);
 				break ;
 			}
+			else if (number < this->numbers_deque[middle])
+				right = middle - 1;
+			else
+				left = middle + 1;
+			middle = (left + right) / 2;
 		}
 	}
 }

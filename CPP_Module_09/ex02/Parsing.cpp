@@ -27,5 +27,5 @@ void PmergeMe::init_params(int argc, char **argv)
 		is_duplicate(argv[i]);
 		this->numbers_deque.push_back(atoi(argv[i]));
 	}
-	this->solo_number = 2147483648;
+	this->single_number = NO_SINGLE_NUMBER;
 }

@@ -44,8 +44,8 @@ void PmergeMe::print_numbers_pair(const std::string &str, const dequePair &deq)
 		std::cout << "\e[38;2;190;190;190m" << deq[i].first << " ";
 		std::cout << "\e[38;2;255;255;255m" << deq[i].second << " ";
 	}
-	if (this->solo_number != 2147483648)
-		std::cout << "\e[38;2;190;190;190m" << this->solo_number;
+	if (this->single_number != NO_SINGLE_NUMBER)
+		std::cout << "\e[38;2;190;190;190m" << this->single_number;
 	std::cout << RESET << std::endl;
 }
 

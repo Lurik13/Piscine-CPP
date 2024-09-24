@@ -13,6 +13,7 @@
 #define GOLD "\e[38;2;212;175;55;1;7m"
 #define RESET "\e[0m"
 
+#define NO_SINGLE_NUMBER 2147483648
 typedef std::deque<int>::iterator dequeIt;
 typedef std::deque< std::pair< int, int > > dequePair;
 
@@ -45,7 +46,7 @@ class PmergeMe
 		/* Sort.cpp */
 
 		std::deque<int> numbers_deque;
-		long long solo_number;
+		long long single_number;
 };
 
 // https://www.programiz.com/dsa/merge-sort
