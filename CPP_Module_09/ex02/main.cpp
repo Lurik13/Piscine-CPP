@@ -9,7 +9,7 @@ int main(int argc, char **argv)
 	}
 	catch(const std::exception& e)
 	{
-		std::cerr << GREEN << e.what() << '\n';
+		std::cerr << GREEN << e.what() << RESET "\n";
 	}
 	
 }

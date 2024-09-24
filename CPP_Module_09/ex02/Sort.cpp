@@ -60,6 +60,43 @@ void PmergeMe::merge(dequePair &deq, int left, int mid, int right)
 		deq[left + p] = temp[p];
 }
 
+void PmergeMe::insert_sort(dequePair &deq_pair)
+{
+	if (deq_pair.size() > 0)
+	{
+		this->numbers_deque.push_back(deq_pair[0].first);
+		this->numbers_deque.push_back(deq_pair[0].second);
+		for (size_t i = 1; i != deq_pair.size(); ++i)
+		{
+			insert(deq_pair[i].first);
+			this->numbers_deque.push_back(deq_pair[i].second);
+		}
+	}
+	if (this->solo_number != 2147483648)
+		insert(this->solo_number);
+}
+
+void PmergeMe::insert(int number)
+{
+	if (this->numbers_deque.size() == 0)
+		this->numbers_deque.push_back(number);
+	else if (number > this->numbers_deque[this->numbers_deque.size() - 1])
+		this->numbers_deque.push_back(number);
+	else
+	{
+		for (size_t j = 0; j != this->numbers_deque.size(); ++j)
+		{
+			if (number < this->numbers_deque[j])
+			{
+				dequeIt it = this->numbers_deque.begin();
+				std::advance(it, j);
+				this->numbers_deque.insert(it, number);
+				break ;
+			}
+		}
+	}
+}
+
 void PmergeMe::sort_numbers()
 {
 	print_numbers("Before:");
@@ -67,6 +104,9 @@ void PmergeMe::sort_numbers()
 	print_numbers("Even sort:");
 	merge_sort(numbers_deque_pair, 0, numbers_deque_pair.size() - 1);
 	print_numbers_pair("Merge sort:", numbers_deque_pair);
+	this->numbers_deque.clear();
+	insert_sort(numbers_deque_pair);
+	print_numbers("Insert sort:");
 }
 
 // 12 5 101 2 8 42

@@ -30,6 +30,8 @@ class PmergeMe
 		dequePair even_sort_deque();
 		void merge_sort(dequePair &deq, int left, int right);
 		void merge(dequePair &deq, int left, int mid, int right);
+		void insert_sort(dequePair &deq_pair);
+		void insert(int number);
 
 	private:
 		/* PmergeMe.cpp */
