@@ -111,13 +111,20 @@ void PmergeMe::insert(int number)
 void PmergeMe::sort_numbers()
 {
 	print_numbers("Before:");
+
+	std::clock_t begin_time = std::clock();
 	dequePair numbers_deque_pair = even_sort_deque();
-	print_numbers("Even sort:");
+	// print_numbers("Even sort:");
 	merge_sort(numbers_deque_pair, 0, numbers_deque_pair.size() - 1);
-	print_numbers_pair("Merge sort:", numbers_deque_pair);
+	// print_numbers_pair("Merge sort:", numbers_deque_pair);
 	this->numbers_deque.clear();
 	insert_sort(numbers_deque_pair);
-	print_numbers("Insert sort:");
+	std::clock_t end_time = std::clock();
+
+	// print_numbers("Insert sort:");
+	print_numbers("After:");
+	double elapsed_time = 1000000.0 * (end_time - begin_time) / CLOCKS_PER_SEC;
+	std::cout << "\e[38;2;170;50;130;1m" << "Deque time: " << std::fixed << std::setprecision(2) << elapsed_time << std::endl;
 }
 
-// 12 5 101 2 8 42
+// 12 5 101 2 21 42 0

@@ -7,6 +7,9 @@
 #include <algorithm>
 #include <iterator>
 #include <deque>
+#include <time.h>
+#include <iomanip>
+#include <ctime>
 
 #define GREEN RESET "\e[38;2;77;181;96;1m"
 #define H RESET "\e[38;2;255;255;255;1;7m"
