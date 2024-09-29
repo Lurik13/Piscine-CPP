@@ -1,4 +1,5 @@
 #include "PmergeMe.hpp"
+#include "PmergeMe.tpp"
 
 dequePair PmergeMe::even_sort_deque()
 {
@@ -16,7 +17,11 @@ dequePair PmergeMe::even_sort_deque()
 	}
 
 	if (this->numbers_deque.size() % 2 == 1)
-		this->single_number = this->numbers_deque[this->numbers_deque.size() - 1];
+	{
+		this->single_number_deque = this->numbers_deque[this->numbers_deque.size() - 1];
+		dequeIt last_number = this->numbers_deque.end();
+		this->numbers_deque.erase(--last_number);
+	}
 	dequePair numbers_deque_pair(this->numbers_deque.size() / 2);
 	for (size_t i = 0; i < this->numbers_deque.size(); ++i)
 	{
@@ -28,20 +33,20 @@ dequePair PmergeMe::even_sort_deque()
 	return (numbers_deque_pair);
 }
 
-void PmergeMe::merge_sort(dequePair &deq, int left, int right)
+void PmergeMe::merge_sort_deque(dequePair &deq, int left, int right)
 {
 	if (left < right)
 	{
 		int middle = (left + right) / 2;
-		merge_sort(deq, left, middle);
-		merge_sort(deq, middle + 1, right);
-		merge(deq, left, middle, right);
+		merge_sort_deque(deq, left, middle);
+		merge_sort_deque(deq, middle + 1, right);
+		merge_deque(deq, left, middle, right);
 	}
 }
 
-void PmergeMe::merge(dequePair &deq, int left, int mid, int right)
+void PmergeMe::merge_deque(dequePair &deq, int left, int mid, int right)
 {
-	dequePair temp(right - left);
+	dequePair temp(right - left + 1);
 	int i = left;
 	int j = mid + 1;
 	int k = 0;
@@ -60,7 +65,7 @@ void PmergeMe::merge(dequePair &deq, int left, int mid, int right)
 		deq[left + p] = temp[p];
 }
 
-void PmergeMe::insert_sort(dequePair &deq_pair)
+void PmergeMe::insert_sort_deque(dequePair &deq_pair)
 {
 	if (deq_pair.size() > 0)
 	{
@@ -68,15 +73,15 @@ void PmergeMe::insert_sort(dequePair &deq_pair)
 		this->numbers_deque.push_back(deq_pair[0].second);
 		for (size_t i = 1; i != deq_pair.size(); ++i)
 		{
-			insert(deq_pair[i].first);
+			insert_deque(deq_pair[i].first);
 			this->numbers_deque.push_back(deq_pair[i].second);
 		}
 	}
-	if (this->single_number != NO_SINGLE_NUMBER)
-		insert(this->single_number);
+	if (this->single_number_deque != NO_SINGLE_NUMBER)
+		insert_deque(this->single_number_deque);
 }
 
-void PmergeMe::insert(int number)
+void PmergeMe::insert_deque(int number)
 {
 	if (this->numbers_deque.size() == 0)
 		this->numbers_deque.push_back(number);
@@ -108,23 +113,15 @@ void PmergeMe::insert(int number)
 	}
 }
 
-void PmergeMe::sort_numbers()
+void PmergeMe::print_numbers_pair_deque(const dequePair &deq, const std::string &str)
 {
-	print_numbers("Before:");
-
-	std::clock_t begin_time = std::clock();
-	dequePair numbers_deque_pair = even_sort_deque();
-	// print_numbers("Even sort:");
-	merge_sort(numbers_deque_pair, 0, numbers_deque_pair.size() - 1);
-	// print_numbers_pair("Merge sort:", numbers_deque_pair);
-	this->numbers_deque.clear();
-	insert_sort(numbers_deque_pair);
-	std::clock_t end_time = std::clock();
-
-	// print_numbers("Insert sort:");
-	print_numbers("After:");
-	double elapsed_time = 1000000.0 * (end_time - begin_time) / CLOCKS_PER_SEC;
-	std::cout << "\e[38;2;170;50;130;1m" << "Deque time: " << std::fixed << std::setprecision(2) << elapsed_time << std::endl;
+	std::cout << GOLD << str << RESET << std::endl;
+	for (size_t i = 0; i < deq.size(); ++i)
+	{
+		std::cout << "\e[38;2;190;190;190m" << deq[i].first << " ";
+		std::cout << "\e[38;2;255;255;255m" << deq[i].second << " ";
+	}
+	if (this->single_number_deque != NO_SINGLE_NUMBER)
+		std::cout << "\e[38;2;190;190;190m" << this->single_number_deque;
+	std::cout << RESET << std::endl;
 }
-
-// 12 5 101 2 21 42 0

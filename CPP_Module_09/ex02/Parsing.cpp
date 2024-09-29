@@ -26,6 +26,8 @@ void PmergeMe::init_params(int argc, char **argv)
 		is_string_digit(argv[i]);
 		is_duplicate(argv[i]);
 		this->numbers_deque.push_back(atoi(argv[i]));
+		this->numbers_vector.push_back(atoi(argv[i]));
 	}
-	this->single_number = NO_SINGLE_NUMBER;
+	this->single_number_deque = NO_SINGLE_NUMBER;
+	this->single_number_vector = NO_SINGLE_NUMBER;
 }

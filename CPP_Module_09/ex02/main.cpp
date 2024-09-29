@@ -1,4 +1,5 @@
 #include "PmergeMe.hpp"
+#include "PmergeMe.tpp"
 
 int main(int argc, char **argv)
 {

@@ -7,6 +7,7 @@
 #include <algorithm>
 #include <iterator>
 #include <deque>
+#include <vector>
 #include <time.h>
 #include <iomanip>
 #include <ctime>
@@ -18,7 +19,10 @@
 
 #define NO_SINGLE_NUMBER 2147483648
 typedef std::deque<int>::iterator dequeIt;
-typedef std::deque< std::pair< int, int > > dequePair;
+typedef std::deque< std::pair<int, int> > dequePair;
+
+typedef std::vector<int>::iterator vectorIt;
+typedef std::vector< std::pair<int, int> > vectorPair;
 
 class PmergeMe
 {
@@ -28,28 +32,43 @@ class PmergeMe
 		PmergeMe &operator=(const PmergeMe &src);
 		~PmergeMe();
 
-		void print_numbers(std::string str);
-		void print_numbers_pair(const std::string &str, const dequePair &deq);
+		template<typename T>
+		void print_numbers(T &container, std::string str);
 		void sort_numbers();
-		dequePair even_sort_deque();
-		void merge_sort(dequePair &deq, int left, int right);
-		void merge(dequePair &deq, int left, int mid, int right);
-		void insert_sort(dequePair &deq_pair);
-		void insert(int number);
+
 
 	private:
 		/* PmergeMe.cpp */
-		dequeIt next(dequeIt current);
+		template<typename iterator>
+		iterator next(iterator current);
 
 		/* Parsing.cpp */
 		void is_string_digit(char *str);
 		void is_duplicate(char *str);
 		void init_params(int argc, char **argv);
 
-		/* Sort.cpp */
+		/* Deque.cpp */
+		dequePair even_sort_deque();
+		void merge_sort_deque(dequePair &deq, int left, int right);
+		void merge_deque(dequePair &deq, int left, int mid, int right);
+		void insert_sort_deque(dequePair &deq_pair);
+		void insert_deque(int number);
+		void print_numbers_pair_deque(const dequePair &deq, const std::string &str);
 
+		/* Vector.cpp */
+		vectorPair even_sort_vector();
+		void merge_sort_vector(vectorPair &deq, int left, int right);
+		void merge_vector(vectorPair &deq, int left, int mid, int right);
+		void insert_sort_vector(vectorPair &deq_pair);
+		void insert_vector(int number);
+		void print_numbers_pair_vector(const vectorPair &vec, const std::string &str);
+
+
+		/********* Variables *********/
 		std::deque<int> numbers_deque;
-		long long single_number;
+		std::vector<int> numbers_vector;
+		long long single_number_deque;
+		long long single_number_vector;
 };
 
 // https://www.programiz.com/dsa/merge-sort
