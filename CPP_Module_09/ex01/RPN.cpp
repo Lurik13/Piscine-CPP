@@ -35,6 +35,8 @@ void RPN::verif_params(int argc, char **argv)
 			|| (i % 2 == 0 && this->input[i] == ' '))
 				throw(std::runtime_error("Wrong format 🤯"));
 	}
+	if (this->input[this->input.size() - 1] == ' ')
+		throw(std::runtime_error("Wrong format 🤯"));
 }
 
 void RPN::polish_calculator()
@@ -60,9 +62,16 @@ void RPN::polish_calculator()
 			else if (c == '-')
 				this->rpn_stack.top() -= tmp;
 			else if (c == '/')
+			{
+				if (tmp == 0)
+					throw(std::runtime_error("You can't divide by zero 😵"));
 				this->rpn_stack.top() /= tmp;
+			}
 			else if (c == '*')
 				this->rpn_stack.top() *= tmp;
+			if (this->rpn_stack.top() > 2147483647
+				|| this->rpn_stack.top() < -2147483648)
+				throw (std::runtime_error("Overflow warning!"));
 		}
 	}
 	if (this->rpn_stack.size() != 1)

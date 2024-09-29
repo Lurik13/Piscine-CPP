@@ -22,5 +22,5 @@ class RPN
 		void verif_params(int argc, char **argv);
 		
 		std::string input;
-		std::stack<int> rpn_stack;
+		std::stack<long long> rpn_stack;
 };

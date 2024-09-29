@@ -112,6 +112,8 @@ void BitcoinExchange::parse_line()
 std::map<std::string, float>::iterator BitcoinExchange::skip_to_date( \
 	int begin, int end, std::map<std::string, float>::iterator it)
 {
+	if (it == this->data_lines.end())
+		return (it);
 	std::string input_string = "";
 	std::string data_string = "";
 	std::string previous_data_string = "";
@@ -130,8 +132,6 @@ std::map<std::string, float>::iterator BitcoinExchange::skip_to_date( \
 		if (atoi(data_string.c_str()) >= atoi(input_string.c_str()))
 			break ;
 	}
-	if (it == this->data_lines.end())
-		return (--it);
 	return (it);
 }
 
@@ -141,7 +141,7 @@ std::map<std::string, float>::iterator BitcoinExchange::find_line()
 	it = skip_to_date(0, 4, it);
 	it = skip_to_date(5, 7, it);
 	it = skip_to_date(8, 10, it);
-	if (it->first != this->input_date)
+	if (it == this->data_lines.end() || it->first != this->input_date)
 		return (--it);
 	return (it);
 }
@@ -149,5 +149,5 @@ std::map<std::string, float>::iterator BitcoinExchange::find_line()
 void BitcoinExchange::calculate_line(std::map<std::string, float>::iterator it)
 {
 	std::cout << GREEN << this->input_date << " ➤ " << this->input_value
-	<< " = \e[4m" << it->second * this->input_value << std::endl;
+	<< " = \e[4m" << it->second * this->input_value << RESET << std::endl;
 }
